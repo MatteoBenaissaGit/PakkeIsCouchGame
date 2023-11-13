@@ -89,7 +89,7 @@ namespace Menu
 
         public void Down()
         {
-            if (_currentColorSelectedIndex + GridSize >= _colorPanelIconButtons.Length-1)
+            if (_currentColorSelectedIndex + GridSize >= _colorPanelIconButtons.Length)
             {
                 return;
             }

@@ -28,6 +28,10 @@ namespace Menu.Buttons
 
         private void Awake()
         {
+            _selectOverlayImage.DOKill();
+            _selectOverlayImage.DOFade(0, 0);
+            _selectOverlayImage.DOComplete();
+            
             _baseSize = _buttonTransform.localScale;
             
             InternalAwake();
@@ -39,7 +43,7 @@ namespace Menu.Buttons
         {
             float animationTime = isSelected ? 0.2f : 0.1f;
             _buttonTransform.DOKill();
-            _buttonTransform.DOScale(isSelected ? _baseSize * 1.1f : _baseSize, animationTime);
+            _buttonTransform.DOScale(isSelected ? _baseSize * 1f : _baseSize, animationTime);
             _selectOverlayImage.DOKill();
             _selectOverlayImage.DOFade(isSelected ? 1f : 0, animationTime);
         }

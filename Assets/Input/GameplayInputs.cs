@@ -1134,7 +1134,7 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""GamePad"",
+                    ""groups"": ""GamePad;GAMEPAD XBOX"",
                     ""action"": ""MenuPress"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -1167,7 +1167,7 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/dpad/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""GamePad"",
+                    ""groups"": ""GamePad;GAMEPAD XBOX"",
                     ""action"": ""MenuLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -1178,7 +1178,7 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""GamePad"",
+                    ""groups"": ""GamePad;GAMEPAD XBOX"",
                     ""action"": ""MenuLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -1200,7 +1200,7 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/dpad/right"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""GamePad"",
+                    ""groups"": ""GamePad;GAMEPAD XBOX"",
                     ""action"": ""MenuRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -1211,7 +1211,7 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""GamePad"",
+                    ""groups"": ""GamePad;GAMEPAD XBOX"",
                     ""action"": ""MenuRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -1233,7 +1233,7 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/dpad/up"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""GamePad"",
+                    ""groups"": ""GamePad;GAMEPAD XBOX"",
                     ""action"": ""MenuUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -1244,7 +1244,7 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/leftStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""GamePad"",
+                    ""groups"": ""GamePad;GAMEPAD XBOX"",
                     ""action"": ""MenuUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -1266,7 +1266,7 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/dpad/down"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""GamePad"",
+                    ""groups"": ""GamePad;GAMEPAD XBOX"",
                     ""action"": ""MenuDown"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -1277,7 +1277,7 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/leftStick/down"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""GamePad"",
+                    ""groups"": ""GamePad;GAMEPAD XBOX"",
                     ""action"": ""MenuDown"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -1302,6 +1302,17 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
             ""devices"": [
                 {
                     ""devicePath"": ""<Keyboard>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""GAMEPAD XBOX"",
+            ""bindingGroup"": ""GAMEPAD XBOX"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<XInputController>"",
                     ""isOptional"": false,
                     ""isOR"": false
                 }
@@ -1759,6 +1770,15 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
         {
             if (m_KEYBOARDSchemeIndex == -1) m_KEYBOARDSchemeIndex = asset.FindControlSchemeIndex("KEYBOARD");
             return asset.controlSchemes[m_KEYBOARDSchemeIndex];
+        }
+    }
+    private int m_GAMEPADXBOXSchemeIndex = -1;
+    public InputControlScheme GAMEPADXBOXScheme
+    {
+        get
+        {
+            if (m_GAMEPADXBOXSchemeIndex == -1) m_GAMEPADXBOXSchemeIndex = asset.FindControlSchemeIndex("GAMEPAD XBOX");
+            return asset.controlSchemes[m_GAMEPADXBOXSchemeIndex];
         }
     }
     public interface IBoatActions

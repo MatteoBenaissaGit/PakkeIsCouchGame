@@ -8,12 +8,21 @@ namespace Menu
 {
     public class PlayerSelectionMenuController : MonoBehaviour
     {
-        [SerializeField] private TMP_Text _playerNameText;
-        [SerializeField] private ButtonController _buttonSelectColor;
+        [field:SerializeField] public TMP_Text PlayerNameText { get; set; }
+        [SerializeField] private ColorButtonController _buttonSelectColor;
         [SerializeField] private ButtonController _buttonSetReady;
 
         private ButtonController[] _buttons;
         private int _selectedButtonIndex;
+
+        private void Awake()
+        {
+            MenuManager.Instance.OnPlayerJoined.Invoke(this);
+
+            _buttonSelectColor.Controller = this;
+            
+            _buttonSelectColor.SetIconColor(UnityEngine.Random.ColorHSV());
+        }
 
         private void Start()
         {
@@ -32,7 +41,7 @@ namespace Menu
 
         public void Set(string playerName)
         {
-            _playerNameText.text = playerName;
+            PlayerNameText.text = playerName;
         }
 
         public void OnPressLeft(InputAction.CallbackContext context)
@@ -111,7 +120,9 @@ namespace Menu
 
         public void OnPressSelect(InputAction.CallbackContext context)
         {
-            if (context.started == false)
+            if (context.started == false
+                || _buttons == null
+                || _buttons.Length == 0) 
             {
                 return;
             }

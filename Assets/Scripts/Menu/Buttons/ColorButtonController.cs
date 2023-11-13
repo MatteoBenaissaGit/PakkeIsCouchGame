@@ -6,6 +6,8 @@ namespace Menu.Buttons
 {
     public class ColorButtonController : ButtonController
     {
+        public PlayerSelectionMenuController Controller { get; set; }
+        
         [SerializeField] private ColorSelectionPanel _colorSelectionPanel;
         [SerializeField] private Transform _arrow;
         [SerializeField] private Image _colorIcon;
@@ -29,7 +31,7 @@ namespace Menu.Buttons
             }
             
             _colorSelectionPanel.gameObject.SetActive(isPressed);
-            _arrow.rotation = Quaternion.Euler(0,0,isPressed ? _arrowBaseRotation + 90 : _arrowBaseRotation);
+            _arrow.rotation = Quaternion.Euler(0,0,isPressed ? _arrowBaseRotation + 180 : _arrowBaseRotation);
 
             if (isPressed == false)
             {
@@ -47,6 +49,7 @@ namespace Menu.Buttons
         public void SetIconColor(Color color)
         {
             _colorIcon.color = color;
+            Controller.PlayerNameText.color = color;
         }
         
         public override void Right()
