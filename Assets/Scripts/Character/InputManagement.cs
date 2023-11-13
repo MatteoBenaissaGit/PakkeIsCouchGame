@@ -12,6 +12,7 @@ namespace Character
         public GameplayInputs GameplayInputs { get { return _gameplayInputs; } private set { _gameplayInputs = value; } }
         [SerializeField] float DeadzoneJoystick = 0.3f;
         [SerializeField] float DeadzoneJoystickTrigger = 0.3f;
+        
         [field:SerializeField] public InputsEnum Inputs { get; private set; }
 
         private void Awake()
