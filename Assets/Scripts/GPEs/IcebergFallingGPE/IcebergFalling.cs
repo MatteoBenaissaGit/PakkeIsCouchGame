@@ -66,7 +66,6 @@ namespace IcebergFallingGPE
                     _particleWhenHitWater.Play();
                 }
                 
-                WavesManager.LaunchCircularWave(_circularWaveData);
                 OnWaterCollision.Invoke();
             }
         }
