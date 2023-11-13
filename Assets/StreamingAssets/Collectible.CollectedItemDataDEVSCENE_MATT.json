@@ -1,0 +1,11 @@
+{
+    "DataList": [
+        {
+            "ItemName": "Test",
+            "IsCollected": false,
+            "CollectibleGameObject": {
+                "instanceID": 161504
+            }
+        }
+    ]
+}

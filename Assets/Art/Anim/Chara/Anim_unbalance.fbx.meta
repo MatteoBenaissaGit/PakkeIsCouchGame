@@ -1,0 +1,833 @@
+fileFormatVersion: 2
+guid: 930e206c650d6604e85198a79dd924de
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      74: 1827226128182048838
+    second: Unbalance_Nuna
+  externalObjects: {}
+  materials:
+    materialImportMode: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: <Root Transform>
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Unbalance_Nuna
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 23
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 3.3
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human:
+    - boneName: RigTest2:NunaRig_Ctrl_Hips
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_LeftUpLeg
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_RightUpLeg
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_LeftLeg
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_RightLeg
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_LeftFoot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_RightFoot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_Spine
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_Spine1
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_Neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_LeftShoulder
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_RightShoulder
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_LeftArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_RightArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_LeftForeArm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_RightForeArm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_LeftHand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_RightHand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_LeftToeBase
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_RightToeBase
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_LeftHandThumb1
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_LeftHandThumb2
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_LeftHandThumb3
+      humanName: Left Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_LeftHandMiddle1
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_LeftHandMiddle2
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_LeftHandMiddle3
+      humanName: Left Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_RightHandThumb1
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_RightHandThumb2
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_RightHandThumb3
+      humanName: Right Thumb Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_RightHandMiddle1
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_RightHandMiddle2
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_RightHandMiddle3
+      humanName: Right Middle Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: RigTest2:NunaRig_Ctrl_Spine2
+      humanName: UpperChest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Anim_unbalance(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Guides
+      parentName: Anim_unbalance(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:Head
+      parentName: RigTest2:NunaRig_Guides
+      position: {x: -0.0031700362, y: 2.1035626, z: -0.074783966}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:Hips
+      parentName: RigTest2:NunaRig_Guides
+      position: {x: -0.0031700362, y: 1.0614729, z: -0.06778857}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:LeftArm
+      parentName: RigTest2:NunaRig_Guides
+      position: {x: -0.25000355, y: 1.8404812, z: -0.07935558}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:LeftFoot
+      parentName: RigTest2:NunaRig_Guides
+      position: {x: -0.25454208, y: -0.051674426, z: -0.066672266}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:LeftForeArm
+      parentName: RigTest2:NunaRig_Guides
+      position: {x: -0.49404153, y: 1.5650061, z: -0.05911092}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:LeftHand
+      parentName: RigTest2:NunaRig_Guides
+      position: {x: -0.715322, y: 1.3735424, z: 0.029354159}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:LeftLeg
+      parentName: RigTest2:NunaRig_Guides
+      position: {x: -0.21112368, y: 0.50646085, z: -0.059648033}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:LeftShoulder
+      parentName: RigTest2:NunaRig_Guides
+      position: {x: -0.10190343, y: 1.8252257, z: -0.07935558}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:LeftToeBase
+      parentName: RigTest2:NunaRig_Guides
+      position: {x: -0.261699, y: -0.21759693, z: 0.02700525}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:LeftUpLeg
+      parentName: RigTest2:NunaRig_Guides
+      position: {x: -0.1757663, y: 1.061375, z: -0.06807496}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:Neck
+      parentName: RigTest2:NunaRig_Guides
+      position: {x: -0.0031700362, y: 1.9185431, z: -0.074606374}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:Reference
+      parentName: RigTest2:NunaRig_Guides
+      position: {x: -0.0031700362, y: -0.27107686, z: -0.117099926}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:RightArm
+      parentName: RigTest2:NunaRig_Guides
+      position: {x: 0.24366346, y: 1.8404812, z: -0.07935558}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:RightFoot
+      parentName: RigTest2:NunaRig_Guides
+      position: {x: 0.24820203, y: -0.051674426, z: -0.066672266}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:RightForeArm
+      parentName: RigTest2:NunaRig_Guides
+      position: {x: 0.48770145, y: 1.5650061, z: -0.05911092}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:RightHand
+      parentName: RigTest2:NunaRig_Guides
+      position: {x: 0.708982, y: 1.3735424, z: 0.029354159}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:RightLeg
+      parentName: RigTest2:NunaRig_Guides
+      position: {x: 0.20478363, y: 0.50646085, z: -0.059648033}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:RightShoulder
+      parentName: RigTest2:NunaRig_Guides
+      position: {x: 0.09556337, y: 1.8252257, z: -0.07935558}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:RightToeBase
+      parentName: RigTest2:NunaRig_Guides
+      position: {x: 0.2553589, y: -0.21759693, z: 0.02700525}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:RightUpLeg
+      parentName: RigTest2:NunaRig_Guides
+      position: {x: 0.16942623, y: 1.061375, z: -0.06807496}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:Spine
+      parentName: RigTest2:NunaRig_Guides
+      position: {x: -0.0031700362, y: 1.250099, z: -0.06840142}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:Spine1
+      parentName: RigTest2:NunaRig_Guides
+      position: {x: -0.0031700362, y: 1.3868495, z: -0.0696592}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:Spine2
+      parentName: RigTest2:NunaRig_Guides
+      position: {x: -0.0031700362, y: 1.5235999, z: -0.07091699}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_Reference
+      parentName: Anim_unbalance(Clone)
+      position: {x: -0.0031700362, y: -0.27107686, z: -0.117099926}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_HipsEffector
+      parentName: RigTest2:NunaRig_Ctrl_Reference
+      position: {x: -0, y: 1.3324505, z: 0.049025048}
+      rotation: {x: 3.0616168e-17, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_LeftAnkleEffector
+      parentName: RigTest2:NunaRig_Ctrl_Reference
+      position: {x: -0.18032, y: 1.1455218, z: 1.1491987}
+      rotation: {x: -0.45808056, y: -0.0036141926, z: -0.0011407472, w: 0.8889026}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_RightAnkleEffector
+      parentName: RigTest2:NunaRig_Ctrl_Reference
+      position: {x: -0.019601649, y: 1.1425196, z: 1.1317865}
+      rotation: {x: -0.4436357, y: -0.000015954329, z: 0.000009036301, w: 0.8962072}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_LeftWristEffector
+      parentName: RigTest2:NunaRig_Ctrl_Reference
+      position: {x: -0.5430178, y: 1.5207185, z: 0.10366133}
+      rotation: {x: -0.1374636, y: 0.26583743, z: 0.51581997, w: 0.8027229}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_RightWristEffector
+      parentName: RigTest2:NunaRig_Ctrl_Reference
+      position: {x: 0.5634522, y: 1.5415065, z: 0.18156025}
+      rotation: {x: -0.17088944, y: -0.20284225, z: -0.51774156, w: 0.81338525}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_LeftKneeEffector
+      parentName: RigTest2:NunaRig_Ctrl_Reference
+      position: {x: -0.17644091, y: 1.2401154, z: 0.59739566}
+      rotation: {x: -0.64452857, y: 0.006831887, z: -0.0102913, w: 0.7644805}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_RightKneeEffector
+      parentName: RigTest2:NunaRig_Ctrl_Reference
+      position: {x: 0.07676406, y: 1.238233, z: 0.5886456}
+      rotation: {x: -0.6405563, y: -0.05705974, z: -0.0648877, w: 0.76303434}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_LeftElbowEffector
+      parentName: RigTest2:NunaRig_Ctrl_Reference
+      position: {x: -0.41640583, y: 1.7856902, z: 0.01875696}
+      rotation: {x: -0.033720165, y: 0.14435038, z: 0.52160776, w: 0.84020907}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_RightElbowEffector
+      parentName: RigTest2:NunaRig_Ctrl_Reference
+      position: {x: 0.43182954, y: 1.7928802, z: 0.067823194}
+      rotation: {x: -0.040582113, y: -0.19638203, z: -0.49613568, w: 0.84477013}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_ChestOriginEffector
+      parentName: RigTest2:NunaRig_Ctrl_Reference
+      position: {x: 2.4586916e-10, y: 1.5211744, z: 0.0486986}
+      rotation: {x: -0.023530986, y: -1.1505096e-16, z: -1.111423e-16, w: 0.99972314}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_ChestEndEffector
+      parentName: RigTest2:NunaRig_Ctrl_Reference
+      position: {x: -0, y: 2.096043, z: 0.050895173}
+      rotation: {x: 0.030802125, y: 1.868468e-18, z: -1.8860038e-18, w: 0.9995255}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_LeftFootEffector
+      parentName: RigTest2:NunaRig_Ctrl_Reference
+      position: {x: -0.18171144, y: 1.1257453, z: 1.3388401}
+      rotation: {x: 0.52186847, y: -0.002851412, z: 0.0024967305, w: 0.85301757}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_RightFootEffector
+      parentName: RigTest2:NunaRig_Ctrl_Reference
+      position: {x: -0.019596763, y: 1.1166158, z: 1.320694}
+      rotation: {x: 0.48066533, y: -0.0000015726189, z: 0.000017890297, w: 0.87690413}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_LeftShoulderEffector
+      parentName: RigTest2:NunaRig_Ctrl_Reference
+      position: {x: -0.24683371, y: 2.1112697, z: 0.051834546}
+      rotation: {x: 0.063291065, y: -0.014099165, z: 0.5194104, w: 0.8520613}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_RightShoulderEffector
+      parentName: RigTest2:NunaRig_Ctrl_Reference
+      position: {x: 0.24683371, y: 2.1112697, z: 0.051834546}
+      rotation: {x: 0.043615352, y: -0.050061475, z: -0.4965426, w: 0.8654693}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_HeadEffector
+      parentName: RigTest2:NunaRig_Ctrl_Reference
+      position: {x: 2.4586916e-10, y: 2.3735757, z: 0.07241463}
+      rotation: {x: 0.030310303, y: 1.8559708e-18, z: -1.8559708e-18, w: 0.99954057}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_LeftHipEffector
+      parentName: RigTest2:NunaRig_Ctrl_Reference
+      position: {x: -0.17259628, y: 1.3324505, z: 0.049025048}
+      rotation: {x: -0.64534307, y: 0.021872576, z: -0.023022648, w: 0.7632326}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_RightHipEffector
+      parentName: RigTest2:NunaRig_Ctrl_Reference
+      position: {x: 0.17259628, y: 1.3324505, z: 0.049025048}
+      rotation: {x: -0.6430204, y: -0.083508365, z: -0.042719044, w: 0.7600831}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_LeftHandThumbEffector
+      parentName: RigTest2:NunaRig_Ctrl_Reference
+      position: {x: -0.49130824, y: 1.3770726, z: 0.30599096}
+      rotation: {x: -0.15605608, y: 0.2401537, z: 0.4909823, w: 0.82274485}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_LeftHandMiddleEffector
+      parentName: RigTest2:NunaRig_Ctrl_Reference
+      position: {x: -0.57609046, y: 1.2434114, z: 0.2953881}
+      rotation: {x: 0.08476218, y: 0.42967674, z: 0.50449485, w: 0.7440956}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_RightHandThumbEffector
+      parentName: RigTest2:NunaRig_Ctrl_Reference
+      position: {x: 0.5074832, y: 1.4075881, z: 0.39525163}
+      rotation: {x: -0.18117651, y: -0.22160476, z: -0.5171159, w: 0.8066335}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_RightHandMiddleEffector
+      parentName: RigTest2:NunaRig_Ctrl_Reference
+      position: {x: 0.55956876, y: 1.2461364, z: 0.3233404}
+      rotation: {x: 0.04393968, y: -0.34949672, z: -0.6862651, w: 0.6363659}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_Hips
+      parentName: RigTest2:NunaRig_Ctrl_Reference
+      position: {x: 1.9208528e-10, y: 1.4229879, z: 0.04931144}
+      rotation: {x: 3.0616168e-17, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_LeftUpLeg
+      parentName: RigTest2:NunaRig_Ctrl_Hips
+      position: {x: -0.17259628, y: -0.00009793854, z: -0.0002863884}
+      rotation: {x: -0.09543751, y: 0.009878912, z: -0.025446726, w: 0.99506116}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_LeftLeg
+      parentName: RigTest2:NunaRig_Ctrl_LeftUpLeg
+      position: {x: -0, y: -0.55610335, z: 0}
+      rotation: {x: 0.0014948586, y: -0.01970417, z: 0.000057122495, w: 0.99980474}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_LeftFoot
+      parentName: RigTest2:NunaRig_Ctrl_LeftLeg
+      position: {x: -0, y: -0.55986553, z: 0}
+      rotation: {x: -0.37186947, y: -0.00558494, z: 0.023901662, w: 0.92796046}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_LeftToeBase
+      parentName: RigTest2:NunaRig_Ctrl_LeftFoot
+      position: {x: -0.000000062942505, y: -0.16592251, z: 0.09395051}
+      rotation: {x: 0.8546533, y: -0.00000004152712, z: 0.00000011813889, w: 0.51919913}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_RightUpLeg
+      parentName: RigTest2:NunaRig_Ctrl_Hips
+      position: {x: 0.17259628, y: -0.00009793854, z: -0.0002863884}
+      rotation: {x: -0.09284669, y: -0.09044956, z: 0.015672818, w: 0.9914398}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_RightLeg
+      parentName: RigTest2:NunaRig_Ctrl_RightUpLeg
+      position: {x: 0.000000031471252, y: -0.55610335, z: 0.0000054366587}
+      rotation: {x: 0.0007895478, y: 0.034709763, z: 0.00007728228, w: 0.99939716}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_RightFoot
+      parentName: RigTest2:NunaRig_Ctrl_RightLeg
+      position: {x: -0.000000015735626, y: -0.55986553, z: 0}
+      rotation: {x: -0.3580454, y: 0.055722784, z: 0.013552487, w: 0.93194145}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_RightToeBase
+      parentName: RigTest2:NunaRig_Ctrl_RightFoot
+      position: {x: 0.000007883548, y: -0.16592251, z: 0.09395051}
+      rotation: {x: 0.81980175, y: -2.5430655e-16, z: -2.0196328e-16, w: 0.57264745}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_Spine
+      parentName: RigTest2:NunaRig_Ctrl_Hips
+      position: {x: -0, y: 0.18862595, z: -0.00061283965}
+      rotation: {x: -0.023530994, y: -1.9911484e-18, z: 1.09871813e-16, w: 0.99972314}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_Spine1
+      parentName: RigTest2:NunaRig_Ctrl_Spine
+      position: {x: -0, y: 0.13675052, z: -0.0012577879}
+      rotation: {x: 0.02716667, y: -7.6998544e-17, z: 5.7663105e-17, w: 0.9996309}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_Spine2
+      parentName: RigTest2:NunaRig_Ctrl_Spine1
+      position: {x: -0, y: 0.13675039, z: -0.0012577879}
+      rotation: {x: 0.027166804, y: 1.6479482e-18, z: -1.6634144e-18, w: 0.9996309}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_LeftShoulder
+      parentName: RigTest2:NunaRig_Ctrl_Spine2
+      position: {x: -0.098733395, y: 0.30162588, z: -0.008438592}
+      rotation: {x: 0, y: 0, z: 6.938894e-18, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_LeftArm
+      parentName: RigTest2:NunaRig_Ctrl_LeftShoulder
+      position: {x: -0.14810008, y: 0.0152555015, z: -2.9309888e-17}
+      rotation: {x: 0.04331748, y: 0.000059866026, z: 0.01631325, w: 0.9989282}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_LeftForeArm
+      parentName: RigTest2:NunaRig_Ctrl_LeftArm
+      position: {x: -0.36857975, y: -7.034373e-16, z: 2.9309888e-17}
+      rotation: {x: -0.0020917798, y: 0.03328625, z: -0.013477273, w: 0.9993528}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_LeftHand
+      parentName: RigTest2:NunaRig_Ctrl_LeftForeArm
+      position: {x: -0.30569503, y: 0, z: 1.4654944e-17}
+      rotation: {x: -0.02422617, y: 0.1617942, z: 0.0038112476, w: 0.98651975}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_LeftHandThumb1
+      parentName: RigTest2:NunaRig_Ctrl_LeftHand
+      position: {x: -0.091325924, y: -0.02587239, z: 0.02737586}
+      rotation: {x: -0.13563488, y: -0.007585734, z: -0.13325128, w: 0.98172796}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_LeftHandThumb2
+      parentName: RigTest2:NunaRig_Ctrl_LeftHandThumb1
+      position: {x: -0.05915463, y: -0.039790235, z: 0.05541736}
+      rotation: {x: -0.072818026, y: 0.06943612, z: -0.060256395, w: 0.9930989}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_LeftHandThumb3
+      parentName: RigTest2:NunaRig_Ctrl_LeftHandThumb2
+      position: {x: -0.051989, y: -0.0466949, z: 0.029965097}
+      rotation: {x: -0.060438383, y: 0.07350177, z: 0.035040163, w: 0.99484515}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_LeftHandMiddle1
+      parentName: RigTest2:NunaRig_Ctrl_LeftHand
+      position: {x: -0.111628205, y: -0.0012529334, z: -0.012277282}
+      rotation: {x: 0.22065209, y: -0.024638439, z: -0.123859964, w: 0.96714234}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_LeftHandMiddle2
+      parentName: RigTest2:NunaRig_Ctrl_LeftHandMiddle1
+      position: {x: -0.08612455, y: -0.014376949, z: 0.008672564}
+      rotation: {x: 0.016434709, y: -0.035477173, z: -0.015924495, w: 0.9991085}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_LeftHandMiddle3
+      parentName: RigTest2:NunaRig_Ctrl_LeftHandMiddle2
+      position: {x: -0.09358215, y: -0.024071606, z: 0.017935973}
+      rotation: {x: -0.034080792, y: -0.043991163, z: -0.17859282, w: 0.98234814}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_LeftHandMiddle4
+      parentName: RigTest2:NunaRig_Ctrl_LeftHandMiddle3
+      position: {x: -0.054742612, y: -0.045273032, z: 0.017550947}
+      rotation: {x: -0.000000035157615, y: 0.00000027494818, z: 0.00000031374393,
+        w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_RightShoulder
+      parentName: RigTest2:NunaRig_Ctrl_Spine2
+      position: {x: 0.098733395, y: 0.30162588, z: -0.008438592}
+      rotation: {x: 0, y: -0, z: -6.938894e-18, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_RightArm
+      parentName: RigTest2:NunaRig_Ctrl_RightShoulder
+      position: {x: 0.14810008, y: 0.0152555015, z: -1.4654944e-17}
+      rotation: {x: 0.019541204, y: -0.0022918126, z: -0.017355947, w: 0.99965584}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_RightForeArm
+      parentName: RigTest2:NunaRig_Ctrl_RightArm
+      position: {x: 0.36857975, y: 0, z: 0}
+      rotation: {x: -0.0016680543, y: -0.032105412, z: 0.013998992, w: 0.9993851}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_RightHand
+      parentName: RigTest2:NunaRig_Ctrl_RightForeArm
+      position: {x: 0.30569503, y: 4.689582e-16, z: -1.4654944e-17}
+      rotation: {x: -0.11239125, y: -0.075394124, z: -0.008495385, w: 0.99076325}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_RightHandThumb1
+      parentName: RigTest2:NunaRig_Ctrl_RightHand
+      position: {x: 0.10539503, y: -0.025874024, z: 0.021578189}
+      rotation: {x: -0.05426492, y: 0.049087718, z: 0.07818497, w: 0.99424994}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_RightHandThumb2
+      parentName: RigTest2:NunaRig_Ctrl_RightHandThumb1
+      position: {x: 0.0574497, y: -0.04281739, z: 0.06675567}
+      rotation: {x: -0.13962954, y: -0.06393991, z: 0.079153605, w: 0.9849619}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_RightHandThumb3
+      parentName: RigTest2:NunaRig_Ctrl_RightHandThumb2
+      position: {x: 0.038351376, y: -0.050153088, z: 0.02713959}
+      rotation: {x: 0.000000068210824, y: 0.00000029292747, z: -0.00000015007252,
+        w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_RightHandMiddle1
+      parentName: RigTest2:NunaRig_Ctrl_RightHand
+      position: {x: 0.10835452, y: -0.0061663515, z: -0.012277171}
+      rotation: {x: 0.16399643, y: -0.049602013, z: 0.057873376, w: 0.9835118}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_RightHandMiddle2
+      parentName: RigTest2:NunaRig_Ctrl_RightHandMiddle1
+      position: {x: 0.095736936, y: -0.014374809, z: -0.0016757498}
+      rotation: {x: 0.0049378704, y: 0.008981728, z: 0.033141408, w: 0.9993982}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_RightHandMiddle3
+      parentName: RigTest2:NunaRig_Ctrl_RightHandMiddle2
+      position: {x: 0.09358468, y: -0.026037425, z: 0.00041323324}
+      rotation: {x: 0.00602127, y: 0.009452651, z: 0.18181743, w: 0.98326844}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_RightHandMiddle4
+      parentName: RigTest2:NunaRig_Ctrl_RightHandMiddle3
+      position: {x: 0.05474034, y: -0.045272656, z: 0.001989046}
+      rotation: {x: -0.000000043732136, y: -0.00000037645106, z: 0.00000006419902,
+        w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_Neck
+      parentName: RigTest2:NunaRig_Ctrl_Spine2
+      position: {x: -0, y: 0.3949433, z: -0.0036893904}
+      rotation: {x: -0.00049205986, y: -3.0101057e-20, z: 3.0129963e-20, w: 0.9999999}
+      scale: {x: 1, y: 1, z: 1}
+    - name: RigTest2:NunaRig_Ctrl_Head
+      parentName: RigTest2:NunaRig_Ctrl_Neck
+      position: {x: -0, y: 0.1850195, z: -0.0001775844}
+      rotation: {x: 3.0616168e-17, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 3.3
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
