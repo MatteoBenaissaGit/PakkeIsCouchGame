@@ -82,6 +82,8 @@ namespace Kayak
         /// </summary>
         private void DragReducing()
         {
+            return; 
+            
             if (DragReducingTimer > 0 || CanReduceDrag == false)
             {
                 DragReducingTimer -= Time.deltaTime;

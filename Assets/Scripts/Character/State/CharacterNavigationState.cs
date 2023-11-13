@@ -84,18 +84,6 @@ namespace Character.State
         public override void UpdateState(CharacterManager character)
         {
             PaddleCooldownManagement();
-
-            if (_timerLastInputTrigger > _kayakValues.TimerMaxForSprint)
-            {
-                CharacterManagerRef.SprintInProgress = false;
-            }
-
-            if (CharacterManagerRef.InWaterFlow == false)
-            {
-            }
-            else if (CharacterManagerRef.InWaterFlow == true)
-            {
-            }
         }
 
         public override void FixedUpdate(CharacterManager character)
@@ -193,24 +181,7 @@ namespace Character.State
             bool staticInput = _inputs.Inputs.RotateLeft != 0 || _inputs.Inputs.RotateRight != 0;
             bool paddleInput = _inputs.Inputs.PaddleLeft || _inputs.Inputs.PaddleRight;
 
-            if (((paddleInput == false) ||
-                 (_lastInputType == RotationType.Paddle) ||
-                 (_paddleWasReleased) == false && _lastInputType == RotationType.Paddle) &&
-                _staticInputTimer <= 0 && staticInput)
-            {
-                HandleStaticRotation();
-
-                _staticTime += Time.deltaTime;
-                if (_staticTime >= timeToSetLastInput)
-                {
-                    _paddleTime = 0f;
-                    _lastInputType = RotationType.Static;
-                }
-            }
-
-            if (((staticInput == false) ||
-                 (_lastInputType == RotationType.Static)) &&
-                paddleInput)
+            if (paddleInput)
             {
                 HandlePaddleMovement();
 
@@ -224,16 +195,20 @@ namespace Character.State
                         _lastInputType = RotationType.Paddle;
                     }
                 }
-            }
 
-            if (paddleInput == false)
-            {
-                _paddleWasReleased = true;
-                if (_paddleTime >= timeToSetLastInput)
+                if (staticInput == false)
                 {
-                    _lastInputType = RotationType.Paddle;
+                    //change the rotation inertia to 0
+                    RotationPaddleForceY = Mathf.Lerp(RotationPaddleForceY, 0, 0.1f);
+                    RotationStaticForceY = Mathf.Lerp(RotationStaticForceY, 0, 0.1f);
                 }
             }
+            else
+            {
+                _kayakRigidbody.velocity = Vector3.Lerp(_kayakRigidbody.velocity, Vector3.zero, 0.002f);
+            }
+
+            HandleStaticRotation();
         }
 
         #endregion
@@ -316,11 +291,6 @@ namespace Character.State
                 _leftPaddleCooldown = _kayakValues.PaddleCooldown / 2;
                 Paddle(direction);
             }
-
-            //change the rotation inertia to 0
-            RotationPaddleForceY = Mathf.Lerp(RotationPaddleForceY, 0, 0.1f);
-            RotationStaticForceY = Mathf.Lerp(RotationStaticForceY, 0, 0.1f);
-            
         }
 
         /// <summary>

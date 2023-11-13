@@ -39,7 +39,6 @@ namespace Character
         [field: SerializeField] public Transform WeaponSpawnPosition { get; private set; }
         [field: SerializeField] public IKControl IKPlayerControl { get; private set; }
         [field: SerializeField] public PlayerParameters Parameters { get; set; }
-        [field: SerializeField] public PlayerAbilities Abilities { get; set; }
         [field: SerializeField, Header("Weapons")] public Animator HarpoonAnimator { get; private set; }
         [field: SerializeField] public Animator NetAnimator { get; private set; }
         [field: SerializeField] public WeaponMeshController HarpoonMeshController { get; private set; }
@@ -59,13 +58,8 @@ namespace Character
 
         [Header("Events")] public UnityEvent StartGame;
         public UnityEvent OnPaddle;
-        public UnityEvent OnEnterSprint;
-        public UnityEvent OnStopSprint;
         
-        [HideInInspector] public float WeaponCooldown;
-        [HideInInspector] public float WeaponCooldownBase;
         [HideInInspector] public float InvincibilityTime;
-        [HideInInspector] public bool ProjectileIsInAir;
         [HideInInspector] public bool IsGameLaunched;
 
         [ReadOnly] public bool SprintInProgress = false;
@@ -168,14 +162,6 @@ namespace Character
     [Serializable]
     public struct PlayerParameters
     {
-        public bool AutoAim;
         public bool InversedControls;
-        public bool Language;
-    }
-    [Serializable]
-    public struct PlayerAbilities
-    {
-        public bool SprintUnlock;
-        public bool CanDestroyIceberg;
     }
 }
