@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 using Character;
-using Character.Camera;
 using Kayak;
 using UnityEngine;
-using WaterFlowGPE;
 using Random = System.Random;
 
 namespace GPEs.WaterFlowGPE
@@ -65,12 +63,10 @@ namespace GPEs.WaterFlowGPE
         private void OnTriggerStay(Collider other)
         {
             CheckForKayak(other);
-            CheckForCameraShake(other);
         }
 
         private void OnTriggerExit(Collider other)
         {
-            ResetCameraShake(other);
         }
 
         /// <summary>
@@ -128,10 +124,6 @@ namespace GPEs.WaterFlowGPE
                 velocity.x + speed * Mathf.Sign(velocity.x),
                 velocity.y,
                 velocity.z + speed * Mathf.Sign(velocity.z));
-                    
-            //balance
-            double value = _balanceValue * UnityEngine.Random.Range(_balanceValueRandomMultiplierRange.x, _balanceValueRandomMultiplierRange.y);
-            CharacterManager.Instance.AddBalanceValueToCurrentSide(value);
         }
 
         /// <summary>
@@ -159,31 +151,7 @@ namespace GPEs.WaterFlowGPE
                 _playParticleTime = UnityEngine.Random.Range(_randomPlayOfParticleTime.x, _randomPlayOfParticleTime.y);
             }
         }
-
-        #region Camera
-        private void CheckForCameraShake(Collider collider)
-        {
-            CameraManager _tempoCameraManager = collider.GetComponentInParent<CameraManager>();
-            if (_tempoCameraManager != null && WaterFlowManager != null)
-            {
-                _tempoCameraManager.WaterFlow = true;
-            }
-        }
-        private void ResetCameraShake(Collider other)
-        {
-            if (CharacterManager.Instance.InWaterFlow == true)
-            {
-                CharacterManager.Instance.InWaterFlow = false;
-            }
-
-            CameraManager _tempoCameraManager = other.GetComponentInParent<CameraManager>();
-            if (_tempoCameraManager != null)
-            {
-                _tempoCameraManager.WaterFlow = false;
-            }
-
-        }
-        #endregion
+        
 
 #if UNITY_EDITOR
 

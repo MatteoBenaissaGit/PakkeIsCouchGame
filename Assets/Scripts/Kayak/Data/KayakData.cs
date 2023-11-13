@@ -71,20 +71,5 @@ namespace Kayak.Data
         public float VelocityDecelerationLerp;
         [Range(0, 0.1f), Tooltip("The lerp value of the rotation velocity deceleration over time")] 
         public float VelocityDecelerationRotationForce;
-
-        [Header("Unbalanced")] 
-        [Range(0, 1), Tooltip("The cooldown of the paddle when unbalanced")] 
-        public float UnbalancePaddleCooldown;
-        [Range(0, 10), Tooltip("The paddle force on balance when unbalanced")] 
-        public float UnbalancePaddleForce;
-    }
-
-    [Serializable]
-    public struct Floaters
-    {
-        public Floater FrontLeft;
-        public Floater FrontRight;
-        public Floater BackLeft;
-        public Floater BackRight;
     }
 }

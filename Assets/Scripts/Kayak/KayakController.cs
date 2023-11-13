@@ -21,7 +21,6 @@ namespace Kayak
         [field:SerializeField, Tooltip("Reference of the kayak rigidbody")] public Rigidbody Rigidbody { get; private set; }
         [ReadOnly, Tooltip("If this value is <= 0, the drag reducing will be activated")] public float DragReducingTimer;
         [ReadOnly, Tooltip("= is the drag reducing method activated ?")] public bool CanReduceDrag = true;
-        [SerializeField, Tooltip("The floaters associated to the kayak's rigidbody")] public Floaters FloatersRef;
        
         [Header("VFX"), SerializeField] public ParticleSystem LeftPaddleParticle;
         [SerializeField] public ParticleSystem RightPaddleParticle;
@@ -55,10 +54,6 @@ namespace Kayak
 
         private void OnCollisionEnter(Collision collision)
         {
-            CharacterManager characterManager = CharacterManager.Instance;
-            float value = collision.relativeVelocity.magnitude / Data.KayakValues.CollisionToBalanceMagnitudeDivider;
-            //Debug.Log($"collision V.M. :{Math.Round(collision.relativeVelocity.magnitude)} -> {Math.Round(value,2)}");
-            characterManager.AddBalanceValueToCurrentSide(value);
             OnKayakCollision.Invoke();
         }
 

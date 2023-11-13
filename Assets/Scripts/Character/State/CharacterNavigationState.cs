@@ -1,7 +1,5 @@
 using System;
 using System.Collections;
-using Character.Camera;
-using Character.Camera.State;
 using Kayak;
 using Kayak.Data;
 using Sound;
@@ -72,24 +70,20 @@ namespace Character.State
             _rightPaddleCooldown = _kayakValues.PaddleCooldown;
             _leftPaddleCooldown = _kayakValues.PaddleCooldown;
             _staticInputTimer = _kayakValues.StaticRotationCooldownAfterPaddle;
-            CharacterManagerRef.Balance = 0;
 
             //booleans
-            CharacterManagerRef.LerpBalanceTo0 = true;
             CanBeMoved = true;
             CanCharacterMakeActions = true;
 
             //anim
             TimeBeforeSettingPaddleAnimator = 1f;
+            
+            Debug.Log("enter navigation state");
         }
 
         public override void UpdateState(CharacterManager character)
         {
             PaddleCooldownManagement();
-
-            CheckBalance();
-
-            MakeBoatRotationWithBalance(_kayakController.transform, 1);
 
             if (_timerLastInputTrigger > _kayakValues.TimerMaxForSprint)
             {
@@ -98,12 +92,9 @@ namespace Character.State
 
             if (CharacterManagerRef.InWaterFlow == false)
             {
-                CharacterManagerRef.SprintUIManager.SprintEnded(_timerLastInputTrigger);
             }
             else if (CharacterManagerRef.InWaterFlow == true)
             {
-                CharacterManagerRef.SprintUIManager.ParticleSpeedEmission(true);
-                CharacterManagerRef.SprintUIManager.TrailEmitting(true);
             }
         }
 
@@ -123,8 +114,6 @@ namespace Character.State
             KayakRotationManager(RotationType.Static);
 
             VelocityToward();
-
-            CheckRigidbodyFloatersBalance();
         }
 
         public override void SwitchState(CharacterManager character)
@@ -133,7 +122,6 @@ namespace Character.State
 
         public override void ExitState(CharacterManager character)
         {
-            DisableSprint();
         }
 
         #endregion
@@ -271,9 +259,6 @@ namespace Character.State
 
             _lastPaddleSide = direction;
 
-            //balance
-            CharacterManagerRef.Balance += RotationPaddleForceY * CharacterManagerRef.Data.RotationToBalanceMultiplier;
-
             //force
             MonoBehaviourRef.StartCoroutine(PaddleForceCurve());
 
@@ -306,29 +291,9 @@ namespace Character.State
         private void HandlePaddleMovement()
         {
             //input -> paddleMovement
-            if (_inputs.Inputs.PaddleRight && _inputs.Inputs.PaddleLeft)
+            if (_inputs.Inputs.PaddleRight)
             {
                 HandleBothPress();
-            }
-
-            if (_inputs.Inputs.PaddleLeft && _leftPaddleCooldown <= 0 && _inputs.Inputs.PaddleRight == false)
-            {
-                Direction direction =
-                    CharacterManagerRef.Parameters.InversedControls ? Direction.Right : Direction.Left;
-                _leftPaddleCooldown = _kayakValues.PaddleCooldown;
-                _rightPaddleCooldown = _kayakValues.PaddleCooldown / 2;
-                CheckIfSprint(direction);
-                Paddle(direction);
-            }
-
-            if (_inputs.Inputs.PaddleRight && _rightPaddleCooldown <= 0 && _inputs.Inputs.PaddleLeft == false)
-            {
-                Direction direction =
-                    CharacterManagerRef.Parameters.InversedControls ? Direction.Left : Direction.Right;
-                _rightPaddleCooldown = _kayakValues.PaddleCooldown;
-                _leftPaddleCooldown = _kayakValues.PaddleCooldown / 2;
-                CheckIfSprint(direction);
-                Paddle(direction);
             }
         }
 
@@ -356,37 +321,6 @@ namespace Character.State
             RotationPaddleForceY = Mathf.Lerp(RotationPaddleForceY, 0, 0.1f);
             RotationStaticForceY = Mathf.Lerp(RotationStaticForceY, 0, 0.1f);
             
-        }
-
-        private void CheckIfSprint(Direction direction)
-        {
-            CharacterManagerRef.SprintUIManager.EnableFeedback(direction);
-            if (_lastInputPaddle == direction || CharacterManagerRef.Abilities.SprintUnlock == false)
-            {
-                return;
-            }
-
-            if (_timerLastInputTrigger >= _kayakValues.TimerMinForSprint &&
-                _timerLastInputTrigger <= _kayakValues.TimerMaxForSprint)
-            {
-                CharacterManagerRef.SprintInProgress = true;
-                CharacterManagerRef.OnEnterSprint.Invoke();
-                MonoBehaviourRef.StartCoroutine(CharacterManagerRef.SprintUIManager.GoodTiming());
-            }
-            else
-            {
-                DisableSprint();
-            }
-
-            _timerLastInputTrigger = 0;
-            _lastInputPaddle = direction;
-        }
-
-        public void DisableSprint()
-        {
-            CharacterManagerRef.SprintInProgress = false;
-            CharacterManagerRef.OnStopSprint.Invoke();
-            CharacterManagerRef.SprintUIManager.DisableSprintUI();
         }
 
         /// <summary>

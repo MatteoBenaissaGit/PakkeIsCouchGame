@@ -67,6 +67,7 @@ namespace WaterAndFloating
 
         private void Update()
         {
+            return;
             WaveGeneration();
             ManageCircularWavesTimer();
             ManageLinearWavesTimer();

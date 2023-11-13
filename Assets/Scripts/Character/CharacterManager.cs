@@ -1,21 +1,13 @@
 using System;
 using Art.Script;
 using Art.Test.Dissolve;
-using Character.Camera;
 using Character.Data.Character;
 using Character.State;
-using Fight;
-using GPEs.Checkpoint;
 using Kayak;
 using SceneTransition;
-using Sedna;
 using Tools.SingletonClassBase;
-using UI;
-using UI.Menu;
-using UI.WeaponWheel;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 namespace Character
 {
@@ -38,50 +30,28 @@ namespace Character
         #region Properties
 
         [field: SerializeField] public CharacterStateBase CurrentStateBaseProperty { get; private set; }
-        [field: SerializeField, Header("Properties")] public CameraManager CameraManagerProperty { get; private set; }
         [field: SerializeField] public KayakController KayakControllerProperty { get; private set; }
         [field: SerializeField] public InputManagement InputManagementProperty { get; private set; }
-        [field: SerializeField] public SednaManager SednaManagerProperty { get; private set; }
         [field: SerializeField] public Animator PaddleAnimatorProperty { get; private set; }
         [field: SerializeField] public Animator CharacterAnimatorProperty { get; private set; }
         [field: SerializeField] public TransitionManager TransitionManagerProperty { get; private set; }
-        [field: SerializeField] public WeaponUIManager WeaponUIManagerProperty { get; private set; }
-        [field: SerializeField] public UIEnemyManager EnemyUIManager { get; private set; }
-        [field: SerializeField] public UIMenuManager UIMenuManagerRef { get; private set; }
-        [field: SerializeField] public NotificationsController NotificationsUIController { get; private set; }
-        [field: SerializeField] public BalanceGaugeManager BalanceGaugeManagerRef { get; private set; }
-        [field: SerializeField] public CheckpointManager CheckpointManagerProperty { get; private set; }
         [field: SerializeField] public MonoBehaviour CharacterMonoBehaviour { get; private set; }
-        [field: SerializeField] public ExperienceManager ExperienceManagerProperty { get; private set; }
         [field: SerializeField] public Transform WeaponSpawnPosition { get; private set; }
         [field: SerializeField] public IKControl IKPlayerControl { get; private set; }
         [field: SerializeField] public PlayerParameters Parameters { get; set; }
         [field: SerializeField] public PlayerAbilities Abilities { get; set; }
-        [field: SerializeField] public OptionMenuManager OptionMenuManager { get; private set; }
-        [field: SerializeField] public ScriptForDebug ScriptDebug { get; private set; }
         [field: SerializeField, Header("Weapons")] public Animator HarpoonAnimator { get; private set; }
         [field: SerializeField] public Animator NetAnimator { get; private set; }
         [field: SerializeField] public WeaponMeshController HarpoonMeshController { get; private set; }
         [field: SerializeField] public WeaponMeshController NetMeshController { get; private set; }
-        [field: SerializeField] public UISprintManager SprintUIManager { get; private set; }
 
         #endregion
 
         [Header("Character Data")]
         public CharacterData Data;
         [Range(0, 360)] public float BaseOrientation;
-        [Header("Balance Infos"), ReadOnly, Tooltip("Can the balance lerp itself to 0 ?")]
-        public bool LerpBalanceTo0 = true;
-        [ReadOnly, Tooltip("The current balance value")]
-        public float Balance = 0f;
-        [ReadOnly, Tooltip("Reset at last checkpoint in menu")]
-        public bool RespawnLastCheckpoint = false;
-        [Tooltip("The timer"), ReadOnly]
-        public float TimerUnbalanced = 0;
         [Tooltip("The number of times the button has been pressed"), ReadOnly]
         public int NumberButtonIsPressed = 0;
-        [ReadOnly]
-        public Projectile CurrentProjectile;
         [Header("VFX")]
         public ParticleSystem WeaponChargedParticleSystem;
         public ParticleSystem SplashLeft;
@@ -120,15 +90,9 @@ namespace Character
 
             CurrentStateBaseProperty.EnterState(this);
 
-            BalanceGaugeManagerRef.SetBalanceGaugeActive(false);
-            ExperienceManagerProperty.ExperienceUIManagerProperty.SetActive(false);
-            BalanceGaugeManagerRef.ShowTrigger(false, false);
-
             //rotate kayak
             Transform kayakTransform = KayakControllerProperty.transform;
             kayakTransform.eulerAngles = new Vector3(0, BaseOrientation, 0);
-
-            CameraManagerProperty.InitializeCams(kayakTransform);
         }
         
         private void Update()
@@ -137,11 +101,7 @@ namespace Character
             
             if (CurrentStateBaseProperty.IsDead == false)
             {
-                BalanceManagement();
-                ManageWeaponCooldown();
             }
-
-            ManageInvincibilityBalance();
 
             //anim
             if (IKPlayerControl.CurrentType != IKType.Paddle || IKPlayerControl.Type == IKType.Paddle)
@@ -166,105 +126,10 @@ namespace Character
             stateBaseCharacter.EnterState(this);
         }
 
-        /// <summary>
-        /// Lerp the Balance value to 0 
-        /// </summary>
-        private void BalanceManagement()
-        {
-            if (CurrentStateBaseProperty.IsDead)
-            {
-                return;
-            }
-
-            InvincibilityTime -= Time.deltaTime;
-            
-            if (LerpBalanceTo0)
-            {
-                Balance = Mathf.Lerp(Balance, 0, Data.BalanceLerpTo0Value);
-            }
-
-            if (Balance >= 0)
-            {
-                float function = Mathf.Pow(Balance, 2) - (((float)NumberButtonIsPressed / (float)Data.NumberPressButton) * 10) * (Mathf.Pow(Balance, 2) / 10);
-                BalanceGaugeManagerRef.SetBalanceCursor(function);
-            }
-            else if (Balance < 0)
-            {
-                //Change of sign
-                float function = -Mathf.Pow(Balance, 2) + (((float)NumberButtonIsPressed / (float)Data.NumberPressButton) * 10) * (Mathf.Pow(Balance, 2) / 10);
-                BalanceGaugeManagerRef.SetBalanceCursor(function);
-            }
-        }
-
-        /// <summary>
-        /// Set the current balance value multiplied by the sign of it
-        /// </summary>
-        /// <param name="value">the (float)value to add</param>
-        public void SetBalanceValueToCurrentSide(float value)
-        {
-            float sign = Mathf.Sign(Balance);
-            Balance = value * sign;
-        }
-
-        /// <summary>
-        /// Add to the current balance value
-        /// </summary>
-        /// <param name="value">the (float)value to add</param>
-        public void AddBalanceValueToCurrentSide(float value)
-        {
-            float sign = Mathf.Sign(Balance);
-            Balance += value * sign;
-        }
-        public void AddBalanceValueToCurrentSide(double value)
-        {
-            AddBalanceValueToCurrentSide((float)value);
-        }
-
-        private void ManageWeaponCooldown()
-        {
-            if (ProjectileIsInAir == false && WeaponCooldown > 0)
-            {
-                WeaponCooldown -= Time.deltaTime;
-                float value = WeaponCooldown / WeaponCooldownBase;
-                WeaponUIManagerProperty.SetCooldownUI(value);
-            }
-        }
-
-        private void ManageInvincibilityBalance()
-        {
-            if (InvincibilityTime < 0 && KayakControllerProperty.Rigidbody.freezeRotation == false)
-                return;
-
-            if (InvincibilityTime >= 0)
-            {
-                Balance = 0;
-                KayakControllerProperty.Rigidbody.freezeRotation = true;
-            }
-            else if (KayakControllerProperty.Rigidbody.freezeRotation == true)
-            {
-                KayakControllerProperty.Rigidbody.freezeRotation = false;
-            }
-        }
-
         public void SendDebugMessage(string message)
         {
             Debug.Log(message);
         }
-
-        #region GUI
-
-        private void OnGUI()
-        {
-#if UNITY_EDITOR
-            GUI.skin.label.fontSize = 30;
-
-            return;
-            GUI.color = Color.white;
-            GUI.Label(new Rect(10, 10, 500, 100), "Balance : " + Math.Round(Balance, 1));
-#endif
-        }
-
-        #endregion
 
 #if UNITY_EDITOR
 
@@ -282,7 +147,6 @@ namespace Character
             {
                 Gizmos.color = gizmoColor;
 
-                Gizmos.DrawLine(CameraManagerProperty.VirtualCameraCombat.transform.position, hit.point);
                 Gizmos.DrawSphere(hit.point, 1f);
             }
 
