@@ -39,7 +39,6 @@ namespace Menu
         {
             IsActive = doShow;
             gameObject.SetActive(IsActive);
-            _currentColorSelectedIndex = 0;
             _colorPanelIconButtons.ToList().ForEach(x => x.IsSelected = false);
             _colorPanelIconButtons[_currentColorSelectedIndex].IsSelected = true;
         }
@@ -77,7 +76,7 @@ namespace Menu
         private const int GridSize = 4;
         public void Up()
         {
-            if (_currentColorSelectedIndex - GridSize <= 0)
+            if (_currentColorSelectedIndex - GridSize < 0)
             {
                 return;
             }

@@ -1112,7 +1112,7 @@
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "GamePad;GAMEPAD XBOX",
+                    "groups": "GamePad;GAMEPAD XBOX;GAMEPAD PLAYSTATION",
                     "action": "MenuPress",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1145,7 +1145,7 @@
                     "path": "<Gamepad>/dpad/left",
                     "interactions": "",
                     "processors": "",
-                    "groups": "GamePad;GAMEPAD XBOX",
+                    "groups": "GamePad;GAMEPAD XBOX;GAMEPAD PLAYSTATION",
                     "action": "MenuLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1156,7 +1156,7 @@
                     "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
-                    "groups": "GamePad;GAMEPAD XBOX",
+                    "groups": "GamePad;GAMEPAD XBOX;GAMEPAD PLAYSTATION",
                     "action": "MenuLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1178,7 +1178,7 @@
                     "path": "<Gamepad>/dpad/right",
                     "interactions": "",
                     "processors": "",
-                    "groups": "GamePad;GAMEPAD XBOX",
+                    "groups": "GamePad;GAMEPAD XBOX;GAMEPAD PLAYSTATION",
                     "action": "MenuRight",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1189,7 +1189,7 @@
                     "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
-                    "groups": "GamePad;GAMEPAD XBOX",
+                    "groups": "GamePad;GAMEPAD XBOX;GAMEPAD PLAYSTATION",
                     "action": "MenuRight",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1211,7 +1211,7 @@
                     "path": "<Gamepad>/dpad/up",
                     "interactions": "",
                     "processors": "",
-                    "groups": "GamePad;GAMEPAD XBOX",
+                    "groups": "GamePad;GAMEPAD XBOX;GAMEPAD PLAYSTATION",
                     "action": "MenuUp",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1222,7 +1222,7 @@
                     "path": "<Gamepad>/leftStick/up",
                     "interactions": "",
                     "processors": "",
-                    "groups": "GamePad;GAMEPAD XBOX",
+                    "groups": "GamePad;GAMEPAD XBOX;GAMEPAD PLAYSTATION",
                     "action": "MenuUp",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1244,7 +1244,7 @@
                     "path": "<Gamepad>/dpad/down",
                     "interactions": "",
                     "processors": "",
-                    "groups": "GamePad;GAMEPAD XBOX",
+                    "groups": "GamePad;GAMEPAD XBOX;GAMEPAD PLAYSTATION",
                     "action": "MenuDown",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1255,7 +1255,7 @@
                     "path": "<Gamepad>/leftStick/down",
                     "interactions": "",
                     "processors": "",
-                    "groups": "GamePad;GAMEPAD XBOX",
+                    "groups": "GamePad;GAMEPAD XBOX;GAMEPAD PLAYSTATION",
                     "action": "MenuDown",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1291,6 +1291,17 @@
             "devices": [
                 {
                     "devicePath": "<XInputController>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "GAMEPAD PLAYSTATION",
+            "bindingGroup": "GAMEPAD PLAYSTATION",
+            "devices": [
+                {
+                    "devicePath": "<DualShockGamepad>",
                     "isOptional": false,
                     "isOR": false
                 }
