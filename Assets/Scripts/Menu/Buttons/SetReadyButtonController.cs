@@ -1,3 +1,4 @@
+using Multiplayer;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +21,11 @@ namespace Menu.Buttons
         {
             IsReady = IsReady == false;
             _iconImage.sprite = IsReady ? _readySprite : _notReadySprite;
+
+            if (IsReady)
+            {
+                MenuManager.Instance.CheckPlayersReady();
+            }
         }
     }
 }

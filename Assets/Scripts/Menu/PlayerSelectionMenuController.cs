@@ -7,10 +7,12 @@ using UnityEngine.InputSystem;
 namespace Menu
 {
     public class PlayerSelectionMenuController : MonoBehaviour
-    {
+    { 
         [field:SerializeField] public TMP_Text PlayerNameText { get; set; }
+        [field:SerializeField] public SetReadyButtonController ButtonSetReady { get; private set; }
+        public int ID { get; private set; }
+        
         [SerializeField] private ColorButtonController _buttonSelectColor;
-        [SerializeField] private ButtonController _buttonSetReady;
 
         private ButtonController[] _buttons;
         private int _selectedButtonIndex;
@@ -29,7 +31,7 @@ namespace Menu
             _buttons = new ButtonController[2]
             {
                 _buttonSelectColor,
-                _buttonSetReady
+                ButtonSetReady
             };
             _selectedButtonIndex = 0;
 
@@ -39,8 +41,9 @@ namespace Menu
             }
         }
 
-        public void Set(string playerName)
+        public void Set(string playerName, int id)
         {
+            ID = id;
             PlayerNameText.text = playerName;
         }
 

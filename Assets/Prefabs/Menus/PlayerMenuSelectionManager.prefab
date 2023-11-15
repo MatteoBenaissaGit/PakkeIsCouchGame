@@ -1270,8 +1270,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PlayerNameText>k__BackingField: {fileID: 2000868312384020002}
+  <ButtonSetReady>k__BackingField: {fileID: 3878650930121618969}
   _buttonSelectColor: {fileID: 5539580574404683681}
-  _buttonSetReady: {fileID: 3878650930121618969}
 --- !u!114 &3112698333121297718
 MonoBehaviour:
   m_ObjectHideFlags: 0

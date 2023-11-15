@@ -1,4 +1,5 @@
 ﻿using System;
+using Multiplayer;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -50,6 +51,8 @@ namespace Menu.Buttons
         {
             _colorIcon.color = color;
             Controller.PlayerNameText.color = color;
+
+            MultiplayerManager.Instance.Players.Find(x => x.ID == Controller.ID).PlayerColor = color;
         }
         
         public override void Right()
