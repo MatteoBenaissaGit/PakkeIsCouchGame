@@ -229,6 +229,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPersistant: 1
+  <PlayersRenderTextures>k__BackingField:
+  - {fileID: 8400000, guid: 3e7c3a10e829b0049b3c7db1d4841d23, type: 2}
+  - {fileID: 8400000, guid: 7bb70d372811f5b4d957c45aea0fb368, type: 2}
+  - {fileID: 8400000, guid: 30dff23e0cf87b44397c66f0d333d0db, type: 2}
+  - {fileID: 8400000, guid: 59030f4bddf321c48999f139ef0f9fc7, type: 2}
 --- !u!4 &360908266
 Transform:
   m_ObjectHideFlags: 0
@@ -507,7 +512,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 247
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -527,7 +532,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576102640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -900,3 +905,5 @@ MonoBehaviour:
   isPersistant: 0
   _playersSelectionLayout: {fileID: 1385318996}
   _selectionMenu: {fileID: 1525567381}
+  _playerCorePrefab: {fileID: 6724023292783905305, guid: 2b3468669575c5845a557d1721eca0e0,
+    type: 3}

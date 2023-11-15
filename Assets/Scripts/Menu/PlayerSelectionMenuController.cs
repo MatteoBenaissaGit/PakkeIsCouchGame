@@ -49,7 +49,9 @@ namespace Menu
 
         public void OnPressLeft(InputAction.CallbackContext context)
         {
-            if (context.started == false)
+            if (context.started == false
+                || _buttons == null
+                || _buttons.Length == 0)
             {
                 return;
             }
@@ -72,7 +74,9 @@ namespace Menu
         
         public void OnPressRight(InputAction.CallbackContext context)
         {
-            if (context.started == false)
+            if (context.started == false
+                || _buttons == null
+                || _buttons.Length == 0)
             {
                 return;
             }
@@ -95,7 +99,9 @@ namespace Menu
 
         public void OnPressUp(InputAction.CallbackContext context)
         {
-            if (context.started == false)
+            if (context.started == false
+                || _buttons == null
+                || _buttons.Length == 0)
             {
                 return;
             }
@@ -109,7 +115,9 @@ namespace Menu
         
         public void OnPressDown(InputAction.CallbackContext context)
         {
-            if (context.started == false)
+            if (context.started == false
+                || _buttons == null
+                || _buttons.Length == 0)
             {
                 return;
             }
