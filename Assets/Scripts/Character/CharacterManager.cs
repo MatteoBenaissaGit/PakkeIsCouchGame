@@ -1,6 +1,5 @@
 using System;
 using Art.Script;
-using Art.Test.Dissolve;
 using Character.Data.Character;
 using Character.State;
 using Kayak;
@@ -25,7 +24,7 @@ namespace Character
         public float WeaponRecallTimeMultiplier = 1;
     }
     
-    public class CharacterManager : Singleton<CharacterManager>
+    public class CharacterManager : MonoBehaviour
     {
         #region Properties
 
@@ -39,10 +38,6 @@ namespace Character
         [field: SerializeField] public Transform WeaponSpawnPosition { get; private set; }
         [field: SerializeField] public IKControl IKPlayerControl { get; private set; }
         [field: SerializeField] public PlayerParameters Parameters { get; set; }
-        [field: SerializeField, Header("Weapons")] public Animator HarpoonAnimator { get; private set; }
-        [field: SerializeField] public Animator NetAnimator { get; private set; }
-        [field: SerializeField] public WeaponMeshController HarpoonMeshController { get; private set; }
-        [field: SerializeField] public WeaponMeshController NetMeshController { get; private set; }
 
         #endregion
 
@@ -67,20 +62,19 @@ namespace Character
 
         public PlayerStatsMultipliers PlayerStats;
 
-        protected override void Awake()
+        private void Awake()
         {
             PlayerStats = new PlayerStatsMultipliers();
             
-            base.Awake();
             Cursor.visible = false;
             CharacterMonoBehaviour = this;
         }
 
         private void Start()
         {
-            CharacterNavigationState navigationState = new CharacterNavigationState();
+            CharacterNavigationState navigationState = new CharacterNavigationState(this);
             CurrentStateBaseProperty = navigationState;
-            CurrentStateBaseProperty.Initialize();
+            CurrentStateBaseProperty.Initialize(this);
 
             CurrentStateBaseProperty.EnterState(this);
 

@@ -30,18 +30,18 @@ namespace Character.State
         //anim
         public float TimeBeforeSettingPaddleAnimator;
         
-        protected CharacterStateBase()
+        protected CharacterStateBase(CharacterManager manager)
         {
-            if (CharacterManager.Instance != null)
+            if (manager != null)
             {
-                Initialize();
+                Initialize(manager);
             }
         }
 
-        public void Initialize()
+        public void Initialize(CharacterManager manager)
         {
-            CharacterManagerRef = CharacterManager.Instance;
-            MonoBehaviourRef = CharacterManager.Instance.CharacterMonoBehaviour;
+            CharacterManagerRef = manager;
+            MonoBehaviourRef = manager.CharacterMonoBehaviour;
         }
 
         public abstract void EnterState(CharacterManager character);
@@ -70,10 +70,10 @@ namespace Character.State
 
         public void LaunchNavigationState()
         {
-            CharacterManager character = CharacterManager.Instance;
+            CharacterManager character = CharacterManagerRef;
             character.WeaponChargedParticleSystem.Stop();
 
-            CharacterNavigationState characterNavigationState = new CharacterNavigationState();
+            CharacterNavigationState characterNavigationState = new CharacterNavigationState(CharacterManagerRef);
             character.SwitchState(characterNavigationState);
 
             CharacterManagerRef.IKPlayerControl.CurrentType = IKType.Paddle;

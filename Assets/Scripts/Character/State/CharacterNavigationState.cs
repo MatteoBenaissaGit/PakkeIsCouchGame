@@ -50,7 +50,7 @@ namespace Character.State
 
         #region Constructor
 
-        public CharacterNavigationState() : base()
+        public CharacterNavigationState(CharacterManager manager) : base(manager)
         {
             _kayakController = CharacterManagerRef.KayakControllerProperty;
             _kayakRigidbody = CharacterManagerRef.KayakControllerProperty.Rigidbody;

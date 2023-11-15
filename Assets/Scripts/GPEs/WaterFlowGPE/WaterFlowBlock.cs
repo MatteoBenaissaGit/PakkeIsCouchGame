@@ -77,10 +77,16 @@ namespace GPEs.WaterFlowGPE
         /// <param name="collider"> The collider to check </param>
         private void CheckForKayak(Collider collider)
         {
-            KayakController kayakController = CharacterManager.Instance.KayakControllerProperty;
+            CharacterManager manager = collider.gameObject.GetComponentInChildren<CharacterManager>();
+            if (manager == null)
+            {
+                return;
+            }
+            
+            KayakController kayakController = manager.KayakControllerProperty;
 
             if (kayakController.gameObject != collider.gameObject || WaterFlowManager == null ||
-                CharacterManager.Instance.CurrentStateBaseProperty.CanBeMoved == false)
+                manager.CurrentStateBaseProperty.CanBeMoved == false)
             {
                 return;
             }
@@ -93,7 +99,7 @@ namespace GPEs.WaterFlowGPE
 
 
             //In water flow
-            CharacterManager.Instance.InWaterFlow = true;
+            manager.InWaterFlow = true;
 
             //get rotation
             Quaternion currentRotation = kayakController.transform.rotation;
@@ -108,7 +114,7 @@ namespace GPEs.WaterFlowGPE
             bool isFacingFlow = angleDifference <= ANGLE_TO_FACE_FLOW;
 
             //apply rotation
-            InputManagement inputManagement = CharacterManager.Instance.InputManagementProperty;
+            InputManagement inputManagement = manager.InputManagementProperty;
             bool isMoving = inputManagement.Inputs.PaddleLeft || inputManagement.Inputs.PaddleRight ||
                             Mathf.Abs(inputManagement.Inputs.RotateLeft) > 0.1f ||
                             Mathf.Abs(inputManagement.Inputs.RotateRight) > 0.1f;

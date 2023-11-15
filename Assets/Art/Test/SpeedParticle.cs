@@ -15,7 +15,7 @@ public class SpeedParticle : MonoBehaviour
 
     private void Start()
     {
-        _maxSpeed = CharacterManager.Instance.KayakControllerProperty.Data.KayakValues.MaximumFrontVelocity;
+        _maxSpeed = 20; //TODO
     }
 
     // Update is called once per frame
