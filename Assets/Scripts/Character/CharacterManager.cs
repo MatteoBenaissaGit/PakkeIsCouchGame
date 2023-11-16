@@ -7,6 +7,7 @@ using SceneTransition;
 using Tools.SingletonClassBase;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 namespace Character
 {
@@ -117,6 +118,18 @@ namespace Character
         public void SendDebugMessage(string message)
         {
             Debug.Log(message);
+        }
+
+        public bool InputPaddle;
+        public void OnInputPaddleTrue(InputAction.CallbackContext context)
+        {
+            Debug.Log("paddle");
+            InputPaddle = true;
+        }
+        public void OnInputPaddleFalse(InputAction.CallbackContext context)
+        {
+            Debug.Log("paddle");
+            InputPaddle = false;
         }
 
 #if UNITY_EDITOR

@@ -2,6 +2,7 @@
 using MatteoBenaissaLibrary.SingletonClassBase;
 using Menu;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Multiplayer
 {
@@ -37,7 +38,7 @@ namespace Multiplayer
         public int ID { get; private set; }
         public string Name { get; private set; }
         public Color PlayerColor { get; set; }
-        public PlayerSelectionMenuController SelectionMenuController { get; set; }
+        public PlayerSelectionMenuController SelectionController { get; set; }
 
         public PlayerCharacterCore CharacterCore
         {
@@ -46,6 +47,17 @@ namespace Multiplayer
             {
                 _characterCore = value;
                 _characterCore.Cam.targetTexture = MultiplayerManager.Instance.PlayersRenderTextures[ID];
+
+                SelectionController.Input.onActionTriggered += _characterCore.Character.OnInputPaddleTrue;
+                InputActionMap boatActionMap = SelectionController.Input.actions.FindActionMap("Boat");
+                InputAction paddleLeft = boatActionMap.FindAction("PaddleLeft");
+                paddleLeft.started += _characterCore.Character.OnInputPaddleTrue;
+                paddleLeft.performed += _characterCore.Character.OnInputPaddleTrue;
+                paddleLeft.canceled += _characterCore.Character.OnInputPaddleFalse;
+                InputAction paddleRight = boatActionMap.FindAction("PaddleRight");
+                paddleRight.started += _characterCore.Character.OnInputPaddleTrue;
+                paddleRight.performed += _characterCore.Character.OnInputPaddleTrue;
+                paddleRight.canceled += _characterCore.Character.OnInputPaddleFalse;
             }
         }
 

@@ -37,7 +37,6 @@ namespace Character.State
         private KayakParameters _kayakValues;
 
         private Rigidbody _kayakRigidbody;
-        //private Floaters _floaters;
 
         //priority
         private RotationType _lastInputType;
@@ -179,7 +178,7 @@ namespace Character.State
         {
             const float timeToSetLastInput = 1.5f;
             bool staticInput = _inputs.Inputs.RotateLeft != 0 || _inputs.Inputs.RotateRight != 0;
-            bool paddleInput = _inputs.Inputs.PaddleLeft || _inputs.Inputs.PaddleRight;
+            bool paddleInput = CharacterManagerRef.InputPaddle;//_inputs.Inputs.PaddleLeft || _inputs.Inputs.PaddleRight;
 
             if (paddleInput)
             {
@@ -266,7 +265,7 @@ namespace Character.State
         private void HandlePaddleMovement()
         {
             //input -> paddleMovement
-            if (_inputs.Inputs.PaddleRight)
+            if (CharacterManagerRef.InputPaddle)
             {
                 HandleBothPress();
             }

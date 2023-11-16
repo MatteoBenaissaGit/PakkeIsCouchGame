@@ -33,8 +33,8 @@ namespace Menu
             
             foreach (Player player in MultiplayerManager.Instance.Players)
             {
-                player.SelectionMenuController.transform.gameObject.SetActive(true);
-                player.SelectionMenuController.transform.parent = _playersSelectionLayout;
+                player.SelectionController.transform.gameObject.SetActive(true);
+                player.SelectionController.transform.parent = _playersSelectionLayout;
             }
         }
 
@@ -53,7 +53,7 @@ namespace Menu
             core.transform.parent = MultiplayerManager.Instance.transform;
             
             Player player = new Player(id, playerName);
-            player.SelectionMenuController = playerSelectionMenuController;
+            player.SelectionController = playerSelectionMenuController;
             player.CharacterCore = core;
             MultiplayerManager.Instance.AddPlayer(player);
             
@@ -68,7 +68,7 @@ namespace Menu
         {
             foreach (Player player in MultiplayerManager.Instance.Players)
             {
-                if (player.SelectionMenuController.ButtonSetReady.IsReady == false)
+                if (player.SelectionController.ButtonSetReady.IsReady == false)
                 {
                     return;
                 }
@@ -81,11 +81,18 @@ namespace Menu
         {
             Debug.Log("launch game");
 
+            //MultiplayerManager.Instance.Players.ForEach(x =>
+                //x.SelectionMenuController.transform.gameObject.SetActive(false)); 
             MultiplayerManager.Instance.Players.ForEach(x =>
-                x.SelectionMenuController.transform.gameObject.SetActive(false)); 
+                x.SelectionController.transform.parent = MultiplayerManager.Instance.transform);
             MultiplayerManager.Instance.Players.ForEach(x =>
-                x.SelectionMenuController.transform.parent = MultiplayerManager.Instance.transform);
-
+                x.SelectionController.CanBeUsed = false);
+            MultiplayerManager.Instance.Players.ForEach(x =>
+                x.SelectionController.Input.currentActionMap = x.SelectionController.Input.actions.FindActionMap("Boat"));
+            MultiplayerManager.Instance.Players.ForEach(x =>
+                x.SelectionController.Input.defaultActionMap = "Boat");
+            
+            
             SceneManager.LoadScene("MultiGameScene", LoadSceneMode.Single);
         }
     }

@@ -10,7 +10,9 @@ namespace Menu
     { 
         [field:SerializeField] public TMP_Text PlayerNameText { get; set; }
         [field:SerializeField] public SetReadyButtonController ButtonSetReady { get; private set; }
+        [field:SerializeField] public PlayerInput Input { get; private set; }
         public int ID { get; private set; }
+        public bool CanBeUsed { get;  set; }
         
         [SerializeField] private ColorButtonController _buttonSelectColor;
 
@@ -28,6 +30,8 @@ namespace Menu
 
         private void Start()
         {
+            CanBeUsed = true;
+            
             _buttons = new ButtonController[2]
             {
                 _buttonSelectColor,
@@ -51,7 +55,8 @@ namespace Menu
         {
             if (context.started == false
                 || _buttons == null
-                || _buttons.Length == 0)
+                || _buttons.Length == 0
+                || CanBeUsed == false)
             {
                 return;
             }
@@ -76,7 +81,8 @@ namespace Menu
         {
             if (context.started == false
                 || _buttons == null
-                || _buttons.Length == 0)
+                || _buttons.Length == 0
+                || CanBeUsed == false)
             {
                 return;
             }
@@ -101,7 +107,8 @@ namespace Menu
         {
             if (context.started == false
                 || _buttons == null
-                || _buttons.Length == 0)
+                || _buttons.Length == 0
+                || CanBeUsed == false)
             {
                 return;
             }
@@ -117,7 +124,8 @@ namespace Menu
         {
             if (context.started == false
                 || _buttons == null
-                || _buttons.Length == 0)
+                || _buttons.Length == 0
+                || CanBeUsed == false)
             {
                 return;
             }
@@ -133,7 +141,8 @@ namespace Menu
         {
             if (context.started == false
                 || _buttons == null
-                || _buttons.Length == 0) 
+                || _buttons.Length == 0
+                || CanBeUsed == false)
             {
                 return;
             }
