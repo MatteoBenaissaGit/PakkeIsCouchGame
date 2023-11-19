@@ -177,7 +177,7 @@ namespace Character.State
         private void ManageKayakMovementInputs()
         {
             const float timeToSetLastInput = 1.5f;
-            bool staticInput = _inputs.Inputs.RotateLeft != 0 || _inputs.Inputs.RotateRight != 0;
+            bool staticInput = CharacterManagerRef.InputLeft || CharacterManagerRef.InputRight; //_inputs.Inputs.RotateLeft != 0 || _inputs.Inputs.RotateRight != 0;
             bool paddleInput = CharacterManagerRef.InputPaddle;//_inputs.Inputs.PaddleLeft || _inputs.Inputs.PaddleRight;
 
             if (paddleInput)
@@ -334,7 +334,7 @@ namespace Character.State
             bool isFast = Mathf.Abs(_kayakRigidbody.velocity.x + _kayakRigidbody.velocity.z) >= 0.1f;
 
             //left
-            if (_inputs.Inputs.RotateLeft > _inputs.Inputs.Deadzone)
+            if (CharacterManagerRef.InputLeft)
             {
                 if (isFast)
                 {
@@ -353,7 +353,7 @@ namespace Character.State
             }
 
             //right
-            if (_inputs.Inputs.RotateRight > _inputs.Inputs.Deadzone)
+            if (CharacterManagerRef.InputRight)
             {
                 if (isFast)
                 {

@@ -120,17 +120,25 @@ namespace Character
             Debug.Log(message);
         }
 
-        public bool InputPaddle;
-        public void OnInputPaddleTrue(InputAction.CallbackContext context)
+        [ReadOnly] public bool InputPaddle;
+        public void OnInputPaddle(InputAction.CallbackContext context)
         {
-            Debug.Log("paddle");
-            InputPaddle = true;
+            //Debug.Log("paddle " + context.performed);
+            InputPaddle = context.performed;
         }
-        public void OnInputPaddleFalse(InputAction.CallbackContext context)
+
+        [ReadOnly] public bool InputLeft;
+        [ReadOnly] public bool InputRight;
+        public void OnInputLeft(InputAction.CallbackContext context)
         {
-            Debug.Log("paddle");
-            InputPaddle = false;
+            InputLeft = context.performed;
         }
+        public void OnInputRight(InputAction.CallbackContext context)
+        {
+            InputRight = context.performed;
+        }
+        
+        
 
 #if UNITY_EDITOR
 

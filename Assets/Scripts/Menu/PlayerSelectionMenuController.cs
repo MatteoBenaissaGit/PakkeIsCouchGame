@@ -21,8 +21,6 @@ namespace Menu
 
         private void Awake()
         {
-            MenuManager.Instance.OnPlayerJoined.Invoke(this);
-
             _buttonSelectColor.Controller = this;
             
             _buttonSelectColor.SetIconColor(UnityEngine.Random.ColorHSV());

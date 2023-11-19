@@ -16,6 +16,7 @@ namespace Character
 
         private void Update()
         {
+            return;
             MatchCharacterWithBoat();
         }
 

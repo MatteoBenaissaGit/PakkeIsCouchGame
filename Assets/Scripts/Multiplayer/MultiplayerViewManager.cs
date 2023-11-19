@@ -27,7 +27,7 @@ namespace Multiplayer
                 throw new Exception("no multiplayer manager");
             }
             
-            MultiplayerManager.Instance.Players.ForEach(x => x.CharacterCore.gameObject.SetActive(true));
+            MultiplayerManager.Instance.Players.ForEach(x => x.CharacterCore.GameplayCharacter.SetActive(true));
             //TODO place and setup players correctly in scene
 
             _views = new GameObject[4] { _1PView,_2PView,_3PView,_4PView };

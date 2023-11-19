@@ -797,7 +797,7 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 0}
-  m_PlayerPrefab: {fileID: 7617997069548069143, guid: d2bb6358823d1bf478abe23b7b611cf5,
+  m_PlayerPrefab: {fileID: 227136687699827220, guid: 2b3468669575c5845a557d1721eca0e0,
     type: 3}
   m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
@@ -905,5 +905,4 @@ MonoBehaviour:
   isPersistant: 0
   _playersSelectionLayout: {fileID: 1385318996}
   _selectionMenu: {fileID: 1525567381}
-  _playerCorePrefab: {fileID: 6724023292783905305, guid: 2b3468669575c5845a557d1721eca0e0,
-    type: 3}
+  _playerCore: {fileID: 0}

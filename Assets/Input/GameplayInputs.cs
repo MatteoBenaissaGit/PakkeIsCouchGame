@@ -300,7 +300,7 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
-                    ""groups"": ""KeyboardMouse"",
+                    ""groups"": ""KeyboardMouse;KEYBOARD"",
                     ""action"": ""PaddleRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -311,7 +311,7 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
-                    ""groups"": ""GamePad"",
+                    ""groups"": ""GamePad;GAMEPAD XBOX;GAMEPAD PLAYSTATION"",
                     ""action"": ""PaddleRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -322,7 +322,7 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""KeyboardMouse"",
+                    ""groups"": ""KeyboardMouse;KEYBOARD"",
                     ""action"": ""StaticRotateLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -333,7 +333,7 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/leftStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""GamePad"",
+                    ""groups"": ""GamePad;GAMEPAD PLAYSTATION;GAMEPAD XBOX"",
                     ""action"": ""StaticRotateLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -344,7 +344,7 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""KeyboardMouse"",
+                    ""groups"": ""KeyboardMouse;KEYBOARD"",
                     ""action"": ""StaticRotateRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -355,7 +355,7 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/leftStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""GamePad"",
+                    ""groups"": ""GamePad;GAMEPAD XBOX;GAMEPAD PLAYSTATION"",
                     ""action"": ""StaticRotateRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
