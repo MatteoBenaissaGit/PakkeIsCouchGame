@@ -70,10 +70,6 @@ namespace Character.State
             _leftPaddleCooldown = _kayakValues.PaddleCooldown;
             _staticInputTimer = _kayakValues.StaticRotationCooldownAfterPaddle;
 
-            //booleans
-            CanBeMoved = true;
-            CanCharacterMakeActions = true;
-
             //anim
             TimeBeforeSettingPaddleAnimator = 1f;
             

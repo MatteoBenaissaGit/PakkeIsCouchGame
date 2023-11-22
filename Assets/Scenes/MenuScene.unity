@@ -295,7 +295,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &430196345
 MonoBehaviour:
@@ -680,7 +680,7 @@ RectTransform:
   - {fileID: 94759784}
   - {fileID: 1525567380}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -905,4 +905,6 @@ MonoBehaviour:
   isPersistant: 0
   _playersSelectionLayout: {fileID: 1385318996}
   _selectionMenu: {fileID: 1525567381}
-  _playerCore: {fileID: 0}
+  _playerCore: {fileID: 969145380835501913, guid: 2b3468669575c5845a557d1721eca0e0,
+    type: 3}
+  _sceneToLaunch: LevelDesignScene

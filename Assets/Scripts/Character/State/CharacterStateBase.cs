@@ -12,10 +12,7 @@ namespace Character.State
         public MonoBehaviour MonoBehaviourRef;
         
         public bool CanBeMoved = true;
-        public bool CanCharacterMove = true;
-        public bool CanCharacterMakeActions = true;
-        public bool CanOpenMenus = true;
-        public bool CanCharacterOpenWeapons = true;
+        public bool CanCharacterMove;
         public bool IsDead;
 
         public float RotationStaticForceY = 0f;

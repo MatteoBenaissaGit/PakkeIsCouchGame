@@ -14,6 +14,7 @@ namespace Menu
         [Space(10),SerializeField] private Transform _playersSelectionLayout;
         [Space(10),SerializeField] private SelectionMenuController _selectionMenu;
         [Space(10),SerializeField] private PlayerCharacterCore _playerCore;
+        [Space(10),SerializeField] private string _sceneToLaunch;
 
         public Action<PlayerCharacterCore> OnPlayerJoined;
 
@@ -80,18 +81,25 @@ namespace Menu
         private void LaunchGame()
         {
             Debug.Log("launch game");
+
+            MultiplayerManager.Instance.Players.ForEach(ToDoForPlayerAtLaunch);
             
-            MultiplayerManager.Instance.Players.ForEach(x => x.SelectionController.transform.parent = x.CharacterCore.transform);
-            MultiplayerManager.Instance.Players.ForEach(x => x.CharacterCore.GameplayUI.SetPlayerUI(x.PlayerColor, x.Name));
-            MultiplayerManager.Instance.Players.ForEach(x => x.CharacterCore.transform.parent = MultiplayerManager.Instance.transform);
-            MultiplayerManager.Instance.Players.ForEach(x => x.SelectionController.gameObject.SetActive(false));
-            MultiplayerManager.Instance.Players.ForEach(x => x.SelectionController.Input.defaultActionMap = "Boat");
-            MultiplayerManager.Instance.Players.ForEach(x => x.SelectionController.CanBeUsed = false);
-            MultiplayerManager.Instance.Players.ForEach(x => x.SelectionController.Input.currentActionMap = x.SelectionController.Input.actions.FindActionMap("Boat"));
-            MultiplayerManager.Instance.Players.ForEach(x => x.SelectionController.Input.defaultActionMap = "Boat");
-            
-            
-            SceneManager.LoadScene("MultiGameScene", LoadSceneMode.Single);
+            SceneManager.LoadScene(_sceneToLaunch, LoadSceneMode.Single);
+        }
+
+        private void ToDoForPlayerAtLaunch(Player player)
+        {
+            player.CharacterCore.GameplayUI.SetPlayerUI(player.PlayerColor, player.Name);
+            player.CharacterCore.Kayak.Trail.startColor = player.PlayerColor;
+            player.CharacterCore.Kayak.Trail.endColor = player.PlayerColor;
+            player.CharacterCore.transform.parent = MultiplayerManager.Instance.transform;
+
+            player.SelectionController.transform.parent = player.CharacterCore.transform;
+            player.SelectionController.gameObject.SetActive(false);
+            player.SelectionController.Input.defaultActionMap = "Boat";
+            player.SelectionController.CanBeUsed = false;
+            player.SelectionController.Input.currentActionMap = player.SelectionController.Input.actions.FindActionMap("Boat");
+            player.SelectionController.Input.defaultActionMap = "Boat";
         }
     }
 }

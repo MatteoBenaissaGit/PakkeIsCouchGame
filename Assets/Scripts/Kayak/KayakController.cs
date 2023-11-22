@@ -17,8 +17,9 @@ namespace Kayak
     public class KayakController : MonoBehaviour
     {
         public KayakData Data;
+        [field:SerializeField] public TrailRenderer Trail { get; set; }
 
-        [SerializeField] private CharacterManager Character;
+        [SerializeField] private CharacterManager _character;
         
         [field:SerializeField, Tooltip("Reference of the kayak rigidbody")] public Rigidbody Rigidbody { get; private set; }
         [ReadOnly, Tooltip("If this value is <= 0, the drag reducing will be activated")] public float DragReducingTimer;
@@ -68,9 +69,9 @@ namespace Kayak
             KayakParameters kayakValues = Data.KayakValues;
 
             float velocityX = velocity.x;
-            float maxClamp = Character.SprintInProgress ? 
+            float maxClamp = _character.SprintInProgress ? 
                 kayakValues.MaximumFrontSprintVelocity :
-                kayakValues.MaximumFrontVelocity * Character.PlayerStats.MaximumSpeedMultiplier;
+                kayakValues.MaximumFrontVelocity * _character.PlayerStats.MaximumSpeedMultiplier;
             velocityX = Mathf.Clamp(velocityX, -maxClamp, maxClamp);
 
             float velocityZ = velocity.z;
