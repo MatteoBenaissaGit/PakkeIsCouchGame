@@ -24,16 +24,12 @@ namespace Racing
 
         private void OnTriggerEnter(Collider other)
         {
-            if (IsActive == false)
-            {
-                return;
-            }
-            
             if (other.gameObject.TryGetComponent(out KayakController kayak) == false)
             {
                 return;
             }
-            _raceManager.SetCheckpointPassed(this);
+
+            _raceManager.SetCheckpointPassed(this, kayak);
         }
     }
 }

@@ -14,10 +14,15 @@ namespace Multiplayer
         [field: SerializeField] public KayakController Kayak;
         [field: SerializeField] public Camera Cam;
         [field: SerializeField] public CharacterGameplayUI GameplayUI;
-
+        
         private void Awake()
         {
             MenuManager.Instance.OnPlayerJoined.Invoke(this);
+        }
+
+        public void SetRaceEliminated()
+        {
+            Kayak.Mesh.gameObject.SetActive(false);
         }
     }
 }

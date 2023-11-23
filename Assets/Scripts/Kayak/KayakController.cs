@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Character;
 using Character.State;
 using Kayak.Data;
+using Racing;
 using Sound;
 using UnityEngine;
 using UnityEngine.Events;
@@ -19,6 +20,7 @@ namespace Kayak
         public KayakData Data;
         [field:SerializeField] public TrailRenderer Trail { get; set; }
         [field:SerializeField] public SpriteRenderer SpriteColor { get; set; }
+        [field:SerializeField] public GameObject Mesh { get; set; }
 
         [SerializeField] private CharacterManager _character;
         
@@ -34,7 +36,7 @@ namespace Kayak
         public UnityEvent OnKayakSpeedHigh;
         [SerializeField] private float _magnitudeToLaunchEventSpeed;
         [SerializeField] private Vector2 _speedEventRecurrenceRandomBetween;
-        
+
         //privates
         private float _speedEventCountDown;
         private float _particleTimer = -1;

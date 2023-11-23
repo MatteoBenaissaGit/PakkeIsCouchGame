@@ -9,6 +9,7 @@ namespace Character
         [SerializeField] private Image _colorIcon;
         [SerializeField] private TMP_Text _playerNameText;
         [SerializeField] private TMP_Text _playerPositionNumber;
+        [SerializeField] private TMP_Text _timer;
 
         public void SetPlayerUI(Color color, string playerName)
         {
@@ -44,6 +45,15 @@ namespace Character
 
             _playerPositionNumber.color = color;
             _playerPositionNumber.text = text;
+        }
+
+        public void SetTimer(float timer)
+        {
+            _timer.color = timer < 10f ? Color.red : Color.white;
+            
+            int minute = (int)(timer / 60);
+            int seconds = (int)(timer % 60);
+            _timer.text = $"{minute.ToString().PadLeft(2,'0')}:{seconds.ToString().PadLeft(2,'0')}s";
         }
     }
 }
