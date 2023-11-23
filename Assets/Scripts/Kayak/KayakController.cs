@@ -18,6 +18,7 @@ namespace Kayak
     {
         public KayakData Data;
         [field:SerializeField] public TrailRenderer Trail { get; set; }
+        [field:SerializeField] public SpriteRenderer SpriteColor { get; set; }
 
         [SerializeField] private CharacterManager _character;
         

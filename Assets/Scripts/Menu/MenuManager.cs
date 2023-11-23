@@ -92,6 +92,7 @@ namespace Menu
             player.CharacterCore.GameplayUI.SetPlayerUI(player.PlayerColor, player.Name);
             player.CharacterCore.Kayak.Trail.startColor = player.PlayerColor;
             player.CharacterCore.Kayak.Trail.endColor = player.PlayerColor;
+            player.CharacterCore.Kayak.SpriteColor.color = player.PlayerColor;
             player.CharacterCore.transform.parent = MultiplayerManager.Instance.transform;
 
             player.SelectionController.transform.parent = player.CharacterCore.transform;

@@ -57,5 +57,10 @@ namespace Multiplayer
             ID = id;
             Name = name;
         }
+
+        public void SetPosition(int position)
+        {
+            CharacterCore.GameplayUI.SetPositionUI(position);
+        }
     }
 }
