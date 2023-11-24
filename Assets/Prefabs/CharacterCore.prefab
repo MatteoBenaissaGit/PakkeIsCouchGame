@@ -4951,6 +4951,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.07587995
       objectReference: {fileID: 0}
+    - target: {fileID: 4847717987475642861, guid: 90e5008432bdbda4ab6dd8c7ef373dab,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 133f059ae129ca143b6c307a6aa1da69, type: 2}
     - target: {fileID: 5036976357555970915, guid: 90e5008432bdbda4ab6dd8c7ef373dab,
         type: 3}
       propertyPath: m_Layer
@@ -5031,6 +5036,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.49918705
       objectReference: {fileID: 0}
+    - target: {fileID: 5344858212736631155, guid: 90e5008432bdbda4ab6dd8c7ef373dab,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 133f059ae129ca143b6c307a6aa1da69, type: 2}
     - target: {fileID: 5380250493651374219, guid: 90e5008432bdbda4ab6dd8c7ef373dab,
         type: 3}
       propertyPath: m_Layer
