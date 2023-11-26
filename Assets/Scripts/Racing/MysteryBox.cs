@@ -11,7 +11,8 @@ namespace Racing
         None = 0,
         Freezer = 1,
         Iceberg = 2,
-        Boost = 3
+        Boost = 3,
+        PaddleHit = 4
     }
     
     public class MysteryBox : MonoBehaviour
@@ -22,7 +23,7 @@ namespace Racing
         private bool _isHidden;
         private float _reappearTimer;
 
-        private const int MysteryObjectEnumSize = 3;
+        private const int MysteryObjectEnumSize = 4;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -55,6 +56,7 @@ namespace Racing
                 case 0 : objectToGive = MysteryObject.Freezer; break;
                 case 1 : objectToGive = MysteryObject.Iceberg; break;
                 case 2 : objectToGive = MysteryObject.Boost; break;
+                case 3 : objectToGive = MysteryObject.PaddleHit; break;
             }
 
             character.GetMysteryObject(objectToGive);
