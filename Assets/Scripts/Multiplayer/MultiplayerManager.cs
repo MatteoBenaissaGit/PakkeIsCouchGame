@@ -1,22 +1,37 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using MatteoBenaissaLibrary.SingletonClassBase;
 using Menu;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Multiplayer
 {
+    [Serializable]
+    public struct WinUIReferences
+    {
+        public GameObject UI;
+        public TMP_Text NameText;
+    }
+    
     public class MultiplayerManager : Singleton<MultiplayerManager>
     {
         [field:SerializeField] public RenderTexture[] PlayersRenderTextures { get; private set; }
         public List<Player> Players { get; private set; } = new List<Player>();
         public int NumberOfPlayers { get; private set; }
 
+        [SerializeField] private GameObject _winUI;
+        [SerializeField] private WinUIReferences[] _winUIs;
+        
         private const int MaximumPlayer = 4;
         
         protected override void Awake()
         {
             base.Awake();
+            
+            _winUI.SetActive(false);
         }
 
         public void AddPlayer(Player player)
@@ -30,7 +45,20 @@ namespace Multiplayer
             NumberOfPlayers++;
             Players.Add(player);
         }
+
+        public void EndGame(List<Player> playersPositions)
+        {
+            _winUI.SetActive(true);
             
+            _winUIs.ToList().ForEach(x => x.UI.SetActive(false));
+            
+            for (int i = 0; i < playersPositions.Count; i++)
+            {
+                _winUIs[i].UI.SetActive(true);
+                _winUIs[i].NameText.text = playersPositions[i].Name;
+                _winUIs[i].NameText.color = playersPositions[i].PlayerColor;
+            }
+        }
     }
 
     public class Player

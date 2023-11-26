@@ -17441,7 +17441,7 @@ MonoBehaviour:
   - {fileID: 533827430}
   - {fileID: 1161401290}
   _countdownText: {fileID: 536001260}
-  _timeToEliminateLast: 90
+  _timeToEliminateLast: 5
   _checkpoints:
   - {fileID: 2043899281}
   - {fileID: 1685919633}

@@ -25,6 +25,7 @@ namespace Racing
         private int _checkpointToPassIndex;
         private RaceCheckpointController _currentCheckpoint;
         private float _eliminateTimer;
+        private Stack<Player> _eliminatedPlayers = new Stack<Player>();
         
         private void Start()
         {
@@ -39,7 +40,7 @@ namespace Racing
             _baseCountdownTextScale = _countdownText.transform.localScale;
             _countdownText.DOFade(0, 0);
             
-            _players = MultiplayerManager.Instance.Players;
+            _players = MultiplayerManager.Instance.Players.ToList();
             for (int i = 0; i < _players.Count; i++)
             {
                 Debug.Log("set player at " + _startPositions[i].position);
@@ -76,10 +77,11 @@ namespace Racing
                 .OrderBy(x => Vector3.Distance(x.CharacterCore.Kayak.transform.position, _currentCheckpoint.transform.position))
                 .ToList();
             orderedList[^1].CharacterCore.SetRaceEliminated();
-            _players.Remove(orderedList[^1]);
+            _eliminatedPlayers.Push(orderedList[^1]);
 
-            if (_players.Count <= 1)
+            if (_eliminatedPlayers.Count >= _players.Count-1)
             {
+                _eliminatedPlayers.Push(orderedList[0]);
                 EndRace();
             }
         }
@@ -160,14 +162,18 @@ namespace Racing
 
             for (int i = 0; i < orderedList.Count; i++)
             {
+                if (orderedList[i].CharacterCore.IsEliminated)
+                {
+                    continue;
+                }
                 orderedList[i].SetPosition(i+1);
             }
         }
 
         private void EndRace()
         {
-            Debug.Log("end race");
             _isRaceEnded = true;
+            MultiplayerManager.Instance.EndGame(_eliminatedPlayers.ToList());
         }
         
 #if UNITY_EDITOR

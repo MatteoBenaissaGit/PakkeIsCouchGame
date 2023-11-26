@@ -14,6 +14,8 @@ namespace Multiplayer
         [field: SerializeField] public KayakController Kayak;
         [field: SerializeField] public Camera Cam;
         [field: SerializeField] public CharacterGameplayUI GameplayUI;
+
+        public bool IsEliminated;
         
         private void Awake()
         {
@@ -23,6 +25,7 @@ namespace Multiplayer
         public void SetRaceEliminated()
         {
             Kayak.Mesh.gameObject.SetActive(false);
+            IsEliminated = true;
         }
     }
 }

@@ -8,7 +8,8 @@ namespace Character
     {
         [SerializeField] private Image _colorIcon;
         [SerializeField] private TMP_Text _playerNameText;
-        [SerializeField] private TMP_Text _playerPositionNumber;
+        [SerializeField] private Image _playerPositionImage;
+        [SerializeField] private Sprite _sprite1, _sprite2, _sprite3, _sprite4;
         [SerializeField] private TMP_Text _timer;
 
         public void SetPlayerUI(Color color, string playerName)
@@ -20,31 +21,22 @@ namespace Character
 
         public void SetPositionUI(int position)
         {
-            Color color = Color.white;
-            string text;
             if (position == 1)
             {
-                text = "1st";
-                color = new Color(1f, 0.85f, 0.01f);
+                _playerPositionImage.sprite = _sprite1;
             }
             else if (position == 2)
             {
-                text = "2nd";
-                color = new Color(0.89f, 0.89f, 0.89f);
+                _playerPositionImage.sprite = _sprite2;
             }
             else if (position == 3)
             {
-                text = "3rd";
-                color = new Color(0.67f, 0.4f, 0.18f);
+                _playerPositionImage.sprite = _sprite3;
             }
             else
             {
-                text = $"{position}th";
+                _playerPositionImage.sprite = _sprite4;
             }
-
-
-            _playerPositionNumber.color = color;
-            _playerPositionNumber.text = text;
         }
 
         public void SetTimer(float timer)
