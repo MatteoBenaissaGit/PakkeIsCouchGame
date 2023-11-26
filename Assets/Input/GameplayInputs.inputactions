@@ -247,6 +247,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Object",
+                    "type": "Button",
+                    "id": "f258f145-e799-4d0c-86eb-4edee1d4de85",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1050,6 +1059,28 @@
                     "processors": "",
                     "groups": "KeyboardMouse",
                     "action": "ShowLeaveMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3c837a41-8cdd-4d53-9ebd-6cacc665ab07",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KEYBOARD;KeyboardMouse",
+                    "action": "Object",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c2a01422-b6e3-4c5b-8fa5-db2e06041508",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "GAMEPAD PLAYSTATION;GAMEPAD XBOX;GamePad",
+                    "action": "Object",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

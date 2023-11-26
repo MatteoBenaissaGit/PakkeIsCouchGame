@@ -15,11 +15,13 @@ namespace Multiplayer
         [field: SerializeField] public Camera Cam;
         [field: SerializeField] public CharacterGameplayUI GameplayUI;
 
-        public bool IsEliminated;
+        public bool IsEliminated { get; set; }
         
         private void Awake()
         {
             MenuManager.Instance.OnPlayerJoined.Invoke(this);
+
+            Character.Core = this;
         }
 
         public void SetRaceEliminated()

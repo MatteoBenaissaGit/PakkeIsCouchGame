@@ -43,7 +43,6 @@ namespace Racing
             _players = MultiplayerManager.Instance.Players.ToList();
             for (int i = 0; i < _players.Count; i++)
             {
-                Debug.Log("set player at " + _startPositions[i].position);
                 _players[i].CharacterCore.GameplayCharacter.transform.position = _startPositions[i].position;
                 _players[i].CharacterCore.GameplayUI.SetPositionUI(i+1);
             }

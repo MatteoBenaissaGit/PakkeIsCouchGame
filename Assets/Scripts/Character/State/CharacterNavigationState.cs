@@ -72,8 +72,6 @@ namespace Character.State
 
             //anim
             TimeBeforeSettingPaddleAnimator = 1f;
-            
-            Debug.Log("enter navigation state");
         }
 
         public override void UpdateState(CharacterManager character)

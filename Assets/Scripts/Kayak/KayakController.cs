@@ -22,7 +22,7 @@ namespace Kayak
         [field:SerializeField] public SpriteRenderer SpriteColor { get; set; }
         [field:SerializeField] public GameObject Mesh { get; set; }
 
-        [SerializeField] private CharacterManager _character;
+        [field:SerializeField] public CharacterManager Character;
         
         [field:SerializeField, Tooltip("Reference of the kayak rigidbody")] public Rigidbody Rigidbody { get; private set; }
         [ReadOnly, Tooltip("If this value is <= 0, the drag reducing will be activated")] public float DragReducingTimer;
@@ -72,9 +72,9 @@ namespace Kayak
             KayakParameters kayakValues = Data.KayakValues;
 
             float velocityX = velocity.x;
-            float maxClamp = _character.SprintInProgress ? 
+            float maxClamp = Character.SprintInProgress ? 
                 kayakValues.MaximumFrontSprintVelocity :
-                kayakValues.MaximumFrontVelocity * _character.PlayerStats.MaximumSpeedMultiplier;
+                kayakValues.MaximumFrontVelocity * Character.PlayerStats.MaximumSpeedMultiplier;
             velocityX = Mathf.Clamp(velocityX, -maxClamp, maxClamp);
 
             float velocityZ = velocity.z;

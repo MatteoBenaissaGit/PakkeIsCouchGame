@@ -1,9 +1,19 @@
-﻿using TMPro;
+﻿using System;
+using System.Collections.Generic;
+using Racing;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Character
 {
+    [Serializable]
+    public struct MysteryObjectSprite
+    {
+        public MysteryObject ObjectName;
+        public Sprite ObjectSprite;
+    }
+    
     public class CharacterGameplayUI : MonoBehaviour
     {
         [SerializeField] private Image _colorIcon;
@@ -11,6 +21,20 @@ namespace Character
         [SerializeField] private Image _playerPositionImage;
         [SerializeField] private Sprite _sprite1, _sprite2, _sprite3, _sprite4;
         [SerializeField] private TMP_Text _timer;
+        [SerializeField] private Image _playerObjectImage;
+        [SerializeField] private MysteryObjectSprite[] _objectsSprites = new MysteryObjectSprite[] { };
+
+        private Dictionary<MysteryObject, Sprite> _objectSpriteDictionary = new Dictionary<MysteryObject, Sprite>();
+
+        private void Awake()
+        {
+            _playerObjectImage.gameObject.SetActive(false);
+
+            foreach (MysteryObjectSprite mysteryObject in _objectsSprites)
+            {
+                _objectSpriteDictionary.Add(mysteryObject.ObjectName, mysteryObject.ObjectSprite);
+            }
+        }
 
         public void SetPlayerUI(Color color, string playerName)
         {
@@ -46,6 +70,17 @@ namespace Character
             int minute = (int)(timer / 60);
             int seconds = (int)(timer % 60);
             _timer.text = $"{minute.ToString().PadLeft(2,'0')}:{seconds.ToString().PadLeft(2,'0')}s";
+        }
+
+        public void SetObjectUI(MysteryObject mysteryObject = MysteryObject.None)
+        {
+            _playerObjectImage.gameObject.SetActive(mysteryObject != MysteryObject.None);
+            if (mysteryObject == MysteryObject.None)
+            {
+                return;
+            }
+
+            _playerObjectImage.sprite = _objectSpriteDictionary[mysteryObject];
         }
     }
 }

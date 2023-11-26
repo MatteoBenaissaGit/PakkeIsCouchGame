@@ -269,6 +269,15 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Object"",
+                    ""type"": ""Button"",
+                    ""id"": ""f258f145-e799-4d0c-86eb-4edee1d4de85"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1074,6 +1083,28 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
                     ""action"": ""ShowLeaveMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3c837a41-8cdd-4d53-9ebd-6cacc665ab07"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KEYBOARD;KeyboardMouse"",
+                    ""action"": ""Object"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c2a01422-b6e3-4c5b-8fa5-db2e06041508"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GAMEPAD PLAYSTATION;GAMEPAD XBOX;GamePad"",
+                    ""action"": ""Object"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -1360,6 +1391,7 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
         m_Boat_ClosePauseMenu = m_Boat.FindAction("ClosePauseMenu", throwIfNotFound: true);
         m_Boat_AnyButton = m_Boat.FindAction("AnyButton", throwIfNotFound: true);
         m_Boat_ShowLeaveMenu = m_Boat.FindAction("ShowLeaveMenu", throwIfNotFound: true);
+        m_Boat_Object = m_Boat.FindAction("Object", throwIfNotFound: true);
         // Menu
         m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
         m_Menu_MenuPress = m_Menu.FindAction("MenuPress", throwIfNotFound: true);
@@ -1455,6 +1487,7 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_Boat_ClosePauseMenu;
     private readonly InputAction m_Boat_AnyButton;
     private readonly InputAction m_Boat_ShowLeaveMenu;
+    private readonly InputAction m_Boat_Object;
     public struct BoatActions
     {
         private @GameplayInputs m_Wrapper;
@@ -1486,6 +1519,7 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
         public InputAction @ClosePauseMenu => m_Wrapper.m_Boat_ClosePauseMenu;
         public InputAction @AnyButton => m_Wrapper.m_Boat_AnyButton;
         public InputAction @ShowLeaveMenu => m_Wrapper.m_Boat_ShowLeaveMenu;
+        public InputAction @Object => m_Wrapper.m_Boat_Object;
         public InputActionMap Get() { return m_Wrapper.m_Boat; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1576,6 +1610,9 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
             @ShowLeaveMenu.started += instance.OnShowLeaveMenu;
             @ShowLeaveMenu.performed += instance.OnShowLeaveMenu;
             @ShowLeaveMenu.canceled += instance.OnShowLeaveMenu;
+            @Object.started += instance.OnObject;
+            @Object.performed += instance.OnObject;
+            @Object.canceled += instance.OnObject;
         }
 
         private void UnregisterCallbacks(IBoatActions instance)
@@ -1661,6 +1698,9 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
             @ShowLeaveMenu.started -= instance.OnShowLeaveMenu;
             @ShowLeaveMenu.performed -= instance.OnShowLeaveMenu;
             @ShowLeaveMenu.canceled -= instance.OnShowLeaveMenu;
+            @Object.started -= instance.OnObject;
+            @Object.performed -= instance.OnObject;
+            @Object.canceled -= instance.OnObject;
         }
 
         public void RemoveCallbacks(IBoatActions instance)
@@ -1830,6 +1870,7 @@ public partial class @GameplayInputs: IInputActionCollection2, IDisposable
         void OnClosePauseMenu(InputAction.CallbackContext context);
         void OnAnyButton(InputAction.CallbackContext context);
         void OnShowLeaveMenu(InputAction.CallbackContext context);
+        void OnObject(InputAction.CallbackContext context);
     }
     public interface IMenuActions
     {

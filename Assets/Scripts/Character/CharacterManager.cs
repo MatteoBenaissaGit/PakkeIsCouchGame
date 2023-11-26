@@ -3,6 +3,8 @@ using Art.Script;
 using Character.Data.Character;
 using Character.State;
 using Kayak;
+using Multiplayer;
+using Racing;
 using SceneTransition;
 using Tools.SingletonClassBase;
 using UnityEngine;
@@ -62,6 +64,7 @@ namespace Character
         [ReadOnly] public bool InWaterFlow = false;
 
         public PlayerStatsMultipliers PlayerStats;
+        public PlayerCharacterCore Core;
 
         private void Awake()
         {
@@ -137,7 +140,51 @@ namespace Character
         {
             InputRight = context.performed;
         }
-        
+        public void OnInputObject(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                UseObject();
+            }
+        }
+
+        public bool HasObject;
+        private MysteryObject _currentObject;
+        public void GetMysteryObject(MysteryObject mysteryObject)
+        {
+            if (HasObject)
+            {
+                return;
+            }
+            
+            HasObject = true;
+            _currentObject = mysteryObject;
+            
+            Core.GameplayUI.SetObjectUI(_currentObject);
+        }
+
+        private void UseObject()
+        {
+            if (_currentObject == MysteryObject.None || HasObject == false)
+            {
+                return;
+            }
+            HasObject = false;
+
+            Debug.Log("use object " + _currentObject);
+            switch (_currentObject)
+            {
+                case MysteryObject.Freezer:
+                    break;
+                case MysteryObject.Iceberg:
+                    break;
+                case MysteryObject.Boost:
+                    break;
+            }
+            
+            _currentObject = MysteryObject.None;
+            Core.GameplayUI.SetObjectUI(_currentObject);
+        }
         
 
 #if UNITY_EDITOR
