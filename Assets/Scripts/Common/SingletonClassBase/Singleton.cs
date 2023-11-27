@@ -4,7 +4,7 @@ namespace MatteoBenaissaLibrary.SingletonClassBase
 {
     public abstract class Singleton<TClass> : MonoBehaviour where TClass : class
     {
-        public static TClass Instance { get; private set; }
+        public static TClass Instance { get; set; }
 
         [Header("Singleton"), SerializeField] protected bool isPersistant;
 
@@ -14,7 +14,7 @@ namespace MatteoBenaissaLibrary.SingletonClassBase
         {
             if (Instance != null)
             {
-                Debug.LogError($"More than one <b>\"{typeof(TClass).Name}\"</b> singleton in scene.", gameObject);
+                Debug.Log($"More than one <b>\"{typeof(TClass).Name}\"</b> singleton in scene.", gameObject);
                 Destroy(this);
                 return;
             }

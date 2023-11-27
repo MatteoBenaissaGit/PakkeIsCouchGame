@@ -22,7 +22,7 @@ namespace Multiplayer
         public List<Player> Players { get; private set; } = new List<Player>();
         public int NumberOfPlayers { get; private set; }
 
-        [SerializeField] private GameObject _winUI;
+        public GameObject WinUI;
         [SerializeField] private WinUIReferences[] _winUIs;
         
         private const int MaximumPlayer = 4;
@@ -31,7 +31,7 @@ namespace Multiplayer
         {
             base.Awake();
             
-            _winUI.SetActive(false);
+            WinUI.SetActive(false);
         }
 
         public void AddPlayer(Player player)
@@ -48,7 +48,7 @@ namespace Multiplayer
 
         public void EndGame(List<Player> playersPositions)
         {
-            _winUI.SetActive(true);
+            WinUI.SetActive(true);
             
             _winUIs.ToList().ForEach(x => x.UI.SetActive(false));
             
