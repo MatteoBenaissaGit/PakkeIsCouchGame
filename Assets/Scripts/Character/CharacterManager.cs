@@ -178,6 +178,8 @@ namespace Character
             switch (_currentObject)
             {
                 case MysteryObject.Freezer:
+                    RaceManager.Instance.FreezeTimeTimer = 5.5f;
+                    Core.GameplayUI.SetTimerFreeze();
                     break;
                 case MysteryObject.Iceberg:
                     IcebergDroppable iceberg = Instantiate(_icebergPrefab);

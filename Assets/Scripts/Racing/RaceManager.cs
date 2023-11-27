@@ -4,14 +4,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using DG.Tweening;
 using Kayak;
+using MatteoBenaissaLibrary.SingletonClassBase;
 using Multiplayer;
 using TMPro;
 using UnityEngine;
 
 namespace Racing
 {
-    public class RaceManager : MonoBehaviour
+    public class RaceManager : Singleton<RaceManager>
     {
+        public float FreezeTimeTimer;
+        
         [SerializeField] private List<Transform> _startPositions = new List<Transform>();
         [SerializeField] private TMP_Text _countdownText;
         [SerializeField] private float _timeToEliminateLast;
@@ -61,6 +64,13 @@ namespace Racing
         {
             if (_isRaceLaunched == false || _isRaceEnded)
             {
+                return;
+            }
+
+            if (FreezeTimeTimer > 0)
+            {
+                _players.ForEach(x => x.CharacterCore.GameplayUI.SetTimerFreeze());
+                FreezeTimeTimer -= Time.deltaTime;
                 return;
             }
             

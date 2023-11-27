@@ -82,5 +82,11 @@ namespace Character
 
             _playerObjectImage.sprite = _objectSpriteDictionary[mysteryObject];
         }
+
+        public void SetTimerFreeze()
+        {
+            _timer.color = Color.cyan;
+            _timer.text = $"Freeze for {(int)RaceManager.Instance.FreezeTimeTimer}";
+        }
     }
 }
