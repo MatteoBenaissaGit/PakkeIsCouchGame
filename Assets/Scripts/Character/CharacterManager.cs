@@ -73,6 +73,7 @@ namespace Character
         [SerializeField] private float _paddleHitForce = 7f;
         [SerializeField] private float _boostTime = 3f;
         [SerializeField] private float _boostForce = 1.5f;
+        [SerializeField] private float _paddleHitDistance = 12.5f;
         
         private void Awake()
         {
@@ -198,7 +199,7 @@ namespace Character
                 case MysteryObject.PaddleHit:
                     Instantiate(_paddleHitPrefab, KayakControllerProperty.transform);
                     RaycastHit[] hits = new RaycastHit[20];
-                    Physics.SphereCastNonAlloc(transform.position, 12.5f, Vector3.up, hits);
+                    Physics.SphereCastNonAlloc(transform.position, _paddleHitDistance, Vector3.up, hits);
                     for (int i = 0; i < hits.Length; i++)
                     {
                         if ( hits[i].collider == null)
@@ -242,7 +243,7 @@ namespace Character
                 Gizmos.DrawSphere(hit.point, 1f);
             }
 
-            Gizmos.DrawWireSphere(transform.position, 12.5f);
+            Gizmos.DrawWireSphere(transform.position, _paddleHitDistance);
         }
 
 #endif
