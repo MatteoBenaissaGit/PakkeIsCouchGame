@@ -132,9 +132,10 @@ namespace Racing
             _countdownText.DOComplete();
 
             float duration = value.Length > 3 ? 2.5f : 1f;
+            float fade = value.Length > 3 ? 1f : 0f;
             Vector3 size = value.Length > 3 ? _baseCountdownTextScale * 1.1f : _baseCountdownTextScale * 1.5f;
             _countdownText.transform.DOScale(size, duration);
-            _countdownText.DOFade(0, duration);
+            _countdownText.DOFade(fade, duration);
         }
 
         private void LaunchRace()
