@@ -62,7 +62,7 @@ namespace Character.State
             
             Vector2 newVelocity = oldVelocityMagnitude * new Vector2(forward.x,forward.z).normalized;
 
-            CharacterManagerRef.KayakControllerProperty.Rigidbody.velocity = new Vector3(newVelocity.x, oldVelocity.y, newVelocity.y);
+            CharacterManagerRef.KayakControllerProperty.Rigidbody.velocity = new Vector3(newVelocity.x, oldVelocity.y, newVelocity.y) + CharacterManagerRef.KayakControllerProperty.TempForceAdd;
         }
 
         public void LaunchNavigationState()

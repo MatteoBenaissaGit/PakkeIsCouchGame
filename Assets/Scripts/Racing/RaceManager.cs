@@ -111,6 +111,8 @@ namespace Racing
         private async void CountDown()
         {
             await Task.Delay(3000);
+            SetCountDownText("Don't be the last when the timer is at 0!");
+            await Task.Delay(2500);
             SetCountDownText("3");
             await Task.Delay(1000);
             SetCountDownText("2");
@@ -128,9 +130,11 @@ namespace Racing
             _countdownText.transform.localScale = _baseCountdownTextScale;
             _countdownText.DOFade(1, 0);
             _countdownText.DOComplete();
-            
-            _countdownText.transform.DOScale(_baseCountdownTextScale * 1.5f, 1f);
-            _countdownText.DOFade(0, 1f);
+
+            float duration = value.Length > 3 ? 2.5f : 1f;
+            Vector3 size = value.Length > 3 ? _baseCountdownTextScale * 1.1f : _baseCountdownTextScale * 1.5f;
+            _countdownText.transform.DOScale(size, duration);
+            _countdownText.DOFade(0, duration);
         }
 
         private void LaunchRace()

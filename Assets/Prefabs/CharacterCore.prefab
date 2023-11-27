@@ -6177,7 +6177,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b1cd6feadb4fb2c48a17f4ffa44937c1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: af170072350ea1b4db4ba0d832a159d8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7401,6 +7401,8 @@ MonoBehaviour:
   Core: {fileID: 969145380835501913}
   _icebergPrefab: {fileID: 2706263166641494567, guid: 1860ddfcccac16b46b4ee8574d586742,
     type: 3}
+  _paddleHitPrefab: {fileID: 6056192955490142985, guid: 579c5af3fdefa2e48b24ac945c18b0f7,
+    type: 3}
   InputPaddle: 0
   InputLeft: 0
   InputRight: 0
@@ -7767,7 +7769,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00:00
+  m_text: 00:00s
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 70a40168abbd55247a46dcedfbc5b928, type: 2}
   m_sharedMaterial: {fileID: -9081560113746883648, guid: 70a40168abbd55247a46dcedfbc5b928,

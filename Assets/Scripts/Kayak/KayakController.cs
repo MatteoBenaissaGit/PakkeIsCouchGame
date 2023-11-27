@@ -39,6 +39,7 @@ namespace Kayak
         [SerializeField] private Vector2 _speedEventRecurrenceRandomBetween;
         
         public float TempBoostTime { get; set; }
+        public Vector3 TempForceAdd { get; set; }
 
         //privates
         private float _speedEventCountDown;
@@ -54,11 +55,6 @@ namespace Kayak
             ClampVelocity();
             ManageParticlePaddle();
             ManageHighSpeedEvent();
-        }
-
-        private void FixedUpdate()
-        {
-            DragReducing();
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -90,35 +86,14 @@ namespace Kayak
             float velocityZ = velocity.z;
             velocityZ = Mathf.Clamp(velocityZ, -maxClamp, maxClamp);
 
+            TempForceAdd = Vector3.Lerp(TempForceAdd, Vector3.zero, 0.01f);
+            if (TempForceAdd.magnitude < 0.1f)
+            {
+                TempForceAdd = Vector3.zero;
+            }
             Rigidbody.velocity = new Vector3(velocityX * tempBoost, velocity.y, velocityZ * tempBoost);
         }
-
-        /// <summary>
-        /// Artificially reduce the kayak drag to let it slide longer on water
-        /// </summary>
-        private void DragReducing()
-        {
-            return; 
-            
-            if (DragReducingTimer > 0 || CanReduceDrag == false)
-            {
-                DragReducingTimer -= Time.deltaTime;
-                return;
-            }
-            
-            Vector3 velocity = Rigidbody.velocity;
-            float absX = Mathf.Abs(velocity.x);
-            float absZ = Mathf.Abs(velocity.z);
-
-            if (absX + absZ > 1)
-            {
-                Rigidbody.velocity = new Vector3(
-                    velocity.x * Data.DragReducingMultiplier * Time.deltaTime, 
-                      velocity.y, 
-                    velocity.z * Data.DragReducingMultiplier * Time.deltaTime);
-            }
-        }
-
+        
         public void PlayPaddleParticle(CharacterNavigationState.Direction side)
         {
             _particleTimer = Data.TimeToPlayParticlesAfterPaddle;
@@ -163,5 +138,20 @@ namespace Kayak
             OnKayakSpeedHigh.Invoke();
             _speedEventCountDown = UnityEngine.Random.Range(_speedEventRecurrenceRandomBetween.x, _speedEventRecurrenceRandomBetween.y);
         }
+        
+#if UNITY_EDITOR
+
+        private void OnDrawGizmos()
+        {
+            if (TempForceAdd == Vector3.zero)
+            {
+                return;
+            }
+            
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(transform.position, transform.position + TempForceAdd * 5f);
+        }
+
+#endif
     }
 }

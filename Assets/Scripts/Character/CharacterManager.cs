@@ -68,6 +68,7 @@ namespace Character
 
         [Header("Objects")] 
         [SerializeField] private IcebergDroppable _icebergPrefab;
+        [SerializeField] private PaddleHitEffect _paddleHitPrefab;
         
         private void Awake()
         {
@@ -190,6 +191,25 @@ namespace Character
                     KayakControllerProperty.BoostParticles.Play();
                     break;
                 case MysteryObject.PaddleHit:
+                    Instantiate(_paddleHitPrefab, KayakControllerProperty.transform);
+                    RaycastHit[] hits = new RaycastHit[20];
+                    Physics.SphereCastNonAlloc(transform.position, 12.5f, Vector3.up, hits);
+                    for (int i = 0; i < hits.Length; i++)
+                    {
+                        if ( hits[i].collider == null)
+                        {
+                            continue;
+                        }
+                        if (hits[i].collider.TryGetComponent(out KayakController kayak) == false
+                            || kayak == KayakControllerProperty)
+                        {
+                            continue;
+                        }
+                        Vector3 force = (kayak.transform.position - KayakControllerProperty.transform.position).normalized;
+                        force = new Vector3(force.x, 0, force.z).normalized;
+                        Debug.Log("add force " + force);
+                        kayak.TempForceAdd = force * 7f;
+                    }
                     break;
             }
             
@@ -217,16 +237,7 @@ namespace Character
                 Gizmos.DrawSphere(hit.point, 1f);
             }
 
-            Transform camera = UnityEngine.Camera.main.transform;
-            for (int i = 0; i < Data.AutoAimNumberOfCastStep; i++)
-            {
-                break;
-                float positionMultiplier = Mathf.Clamp((Data.AutoAimDistanceBetweenEachStep * i), 1, 10000);
-                Vector3 newPosition = camera.position + camera.forward * positionMultiplier;
-                float radiusMultiplier = Mathf.Clamp(Vector3.Distance(camera.position, newPosition) / 5, 1, 10000);
-                float radius = Data.AutoAimSize * radiusMultiplier;
-                Gizmos.DrawWireSphere(newPosition, radius);
-            }
+            Gizmos.DrawWireSphere(transform.position, 12.5f);
         }
 
 #endif

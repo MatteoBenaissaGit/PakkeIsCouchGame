@@ -61,7 +61,6 @@ namespace Racing
                 case 3 : objectToGive = MysteryObject.PaddleHit; break;
             }
 
-            objectToGive = MysteryObject.Freezer;
             character.GetMysteryObject(objectToGive);
         }
 
