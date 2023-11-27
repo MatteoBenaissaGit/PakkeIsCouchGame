@@ -51,7 +51,7 @@ namespace Racing
             _reappearTimer = _reappearTime;
             _isHidden = true;
 
-            MysteryObject objectToGive = MysteryObject.Freezer;
+            MysteryObject objectToGive = MysteryObject.None;
             int random = UnityEngine.Random.Range(0, MysteryObjectEnumSize);
             switch (random)
             {
@@ -61,6 +61,7 @@ namespace Racing
                 case 3 : objectToGive = MysteryObject.PaddleHit; break;
             }
 
+            objectToGive = MysteryObject.Boost;
             character.GetMysteryObject(objectToGive);
         }
 

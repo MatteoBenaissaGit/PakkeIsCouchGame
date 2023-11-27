@@ -184,6 +184,10 @@ namespace Character
                     iceberg.transform.position = KayakControllerProperty.transform.position - KayakControllerProperty.transform.forward * 2;
                     break;
                 case MysteryObject.Boost:
+                    KayakControllerProperty.TempBoostTime = 3f;
+                    KayakControllerProperty.BoostParticles.Play();
+                    break;
+                case MysteryObject.PaddleHit:
                     break;
             }
             

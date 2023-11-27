@@ -30,12 +30,15 @@ namespace Kayak
        
         [Header("VFX"), SerializeField] public ParticleSystem LeftPaddleParticle;
         [SerializeField] public ParticleSystem RightPaddleParticle;
+        [SerializeField] public ParticleSystem BoostParticles;
         
         [Header("Events")] 
         public UnityEvent OnKayakCollision;
         public UnityEvent OnKayakSpeedHigh;
         [SerializeField] private float _magnitudeToLaunchEventSpeed;
         [SerializeField] private Vector2 _speedEventRecurrenceRandomBetween;
+        
+        public float TempBoostTime { get; set; }
 
         //privates
         private float _speedEventCountDown;
@@ -68,6 +71,13 @@ namespace Kayak
         /// </summary>
         private void ClampVelocity()
         {
+            TempBoostTime -= Time.deltaTime;
+            if (TempBoostTime <= 0 && BoostParticles.isPlaying)
+            {
+                BoostParticles.Stop();
+            }
+            float tempBoost = TempBoostTime > 0 ? 1.5f : 1f;
+
             Vector3 velocity = Rigidbody.velocity;
             KayakParameters kayakValues = Data.KayakValues;
 
@@ -80,7 +90,7 @@ namespace Kayak
             float velocityZ = velocity.z;
             velocityZ = Mathf.Clamp(velocityZ, -maxClamp, maxClamp);
 
-            Rigidbody.velocity = new Vector3(velocityX, velocity.y, velocityZ);
+            Rigidbody.velocity = new Vector3(velocityX * tempBoost, velocity.y, velocityZ * tempBoost);
         }
 
         /// <summary>
