@@ -206,14 +206,21 @@ namespace Character
                         {
                             continue;
                         }
+                        
                         if (hits[i].collider.TryGetComponent(out KayakController kayak) == false
                             || kayak == KayakControllerProperty)
                         {
+                            if (hits[i].collider.TryGetComponent(out Rigidbody rb))
+                            {
+                                Debug.Log("force");
+                                Vector3 forceToRigidbody = (rb.transform.position - KayakControllerProperty.transform.position).normalized;
+                                forceToRigidbody = new Vector3(forceToRigidbody.x, 0, forceToRigidbody.z).normalized;
+                                rb.AddForce(forceToRigidbody * _paddleHitForce * 2.5f, ForceMode.Impulse);
+                            }
                             continue;
                         }
                         Vector3 force = (kayak.transform.position - KayakControllerProperty.transform.position).normalized;
                         force = new Vector3(force.x, 0, force.z).normalized;
-                        Debug.Log("add force " + force);
                         kayak.TempForceAdd = force * _paddleHitForce;
                     }
                     break;
