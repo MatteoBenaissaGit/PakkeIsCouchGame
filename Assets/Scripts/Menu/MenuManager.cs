@@ -50,7 +50,7 @@ namespace Menu
 
         public void PlayerJoined(PlayerCharacterCore playerCore)
         {
-            string playerName = $"Player {_currentNumberOfPlayer}";
+            string playerName = $"Player {_currentNumberOfPlayer+1}";
             int id = _currentNumberOfPlayer;
 
             _playerCore = playerCore;
