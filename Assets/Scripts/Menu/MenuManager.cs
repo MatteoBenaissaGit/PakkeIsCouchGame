@@ -69,7 +69,7 @@ namespace Menu
         {
             if (MultiplayerManager.Instance.Players.Count <= 1)
             {
-                //TODO return;
+                return;
             }
             
             foreach (Player player in MultiplayerManager.Instance.Players)

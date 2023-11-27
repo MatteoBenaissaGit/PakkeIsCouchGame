@@ -66,6 +66,9 @@ namespace Character
         public PlayerStatsMultipliers PlayerStats;
         public PlayerCharacterCore Core;
 
+        [Header("Objects")] 
+        [SerializeField] private IcebergDroppable _icebergPrefab;
+        
         private void Awake()
         {
             PlayerStats = new PlayerStatsMultipliers();
@@ -177,6 +180,8 @@ namespace Character
                 case MysteryObject.Freezer:
                     break;
                 case MysteryObject.Iceberg:
+                    IcebergDroppable iceberg = Instantiate(_icebergPrefab);
+                    iceberg.transform.position = KayakControllerProperty.transform.position - KayakControllerProperty.transform.forward * 2;
                     break;
                 case MysteryObject.Boost:
                     break;

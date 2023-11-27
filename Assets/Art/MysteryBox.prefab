@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _reappearTime: 3
   _mesh: {fileID: 8752215643178192678}
+  _particle: {fileID: 1078062522734611014}
 --- !u!65 &4984685252719343559
 BoxCollider:
   m_ObjectHideFlags: 0

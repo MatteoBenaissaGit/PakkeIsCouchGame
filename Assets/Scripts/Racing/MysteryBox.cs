@@ -19,6 +19,7 @@ namespace Racing
     {
         [SerializeField] private float _reappearTime;
         [SerializeField] private GameObject _mesh;
+        [SerializeField] private ParticleSystem _particle;
 
         private bool _isHidden;
         private float _reappearTimer;
@@ -45,6 +46,7 @@ namespace Racing
             Debug.Log("taken");
             
             _mesh.SetActive(false);
+            _particle.Stop();
             
             _reappearTimer = _reappearTime;
             _isHidden = true;
@@ -81,6 +83,7 @@ namespace Racing
         private void MakeBoxReappear()
         {
             _mesh.SetActive(true);
+            _particle.Play();
 
             _isHidden = false;
         }

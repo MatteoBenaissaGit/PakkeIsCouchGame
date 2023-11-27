@@ -933,7 +933,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 5986433946809669141}
-  m_PlaneDistance: 13.62
+  m_PlaneDistance: 5.52
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -2568,7 +2568,9 @@ MonoBehaviour:
     ChargeTimeReducingMultiplier: 1
     ExperienceGainMultiplier: 1
     WeaponRecallTimeMultiplier: 1
-  Core: {fileID: 0}
+  Core: {fileID: 969145380835501913}
+  _icebergPrefab: {fileID: 2706263166641494567, guid: 1860ddfcccac16b46b4ee8574d586742,
+    type: 3}
   InputPaddle: 0
   InputLeft: 0
   InputRight: 0
