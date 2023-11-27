@@ -79,7 +79,6 @@ namespace Kayak
             if (Character.Core.Position > 1)
             {
                 PositionBoost = 1 + (Character.Core.Position / 9f);
-                Debug.Log($"{Character.Core.Position} : {PositionBoost}");
             }
 
             Vector3 velocity = Rigidbody.velocity;

@@ -295,7 +295,7 @@ namespace Character.State
             for (int i = 0; i <= _kayakValues.NumberOfForceAppliance; i++)
             {
                 float x = 1f / _kayakValues.NumberOfForceAppliance * i;
-                float force = (_kayakValues.ForceCurve.Evaluate(x) * _kayakValues.PaddleForce) * sprintMultiply * CharacterManagerRef.KayakControllerProperty.PositionBoost;
+                float force = (_kayakValues.ForceCurve.Evaluate(x) * _kayakValues.PaddleForce) * sprintMultiply;// * CharacterManagerRef.KayakControllerProperty.PositionBoost;
                 Vector3 forceToApply = _kayakController.transform.forward * force;
                 _kayakRigidbody.AddForce(forceToApply);
 

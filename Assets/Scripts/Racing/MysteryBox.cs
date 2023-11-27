@@ -26,7 +26,7 @@ namespace Racing
 
         private const int MysteryObjectEnumSize = 4;
 
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerStay(Collider other)
         {
             if (_isHidden)
             {
