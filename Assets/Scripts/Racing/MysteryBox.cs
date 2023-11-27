@@ -68,6 +68,7 @@ namespace Racing
         {
             if (_isHidden == false)
             {
+                transform.Rotate(Vector3.up, 0.5f);
                 return;
             }
 

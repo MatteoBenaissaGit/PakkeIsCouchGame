@@ -13,7 +13,7 @@ namespace Racing
 {
     public class RaceManager : Singleton<RaceManager>
     {
-        public float FreezeTimeTimer;
+        public float FreezeTimeTimer { get; set; }
         
         [SerializeField] private List<Transform> _startPositions = new List<Transform>();
         [SerializeField] private TMP_Text _countdownText;
@@ -60,6 +60,7 @@ namespace Racing
             UpdatePositions();
         }
 
+        private int _playerEliminatedCount = 0;
         private void UpdateEliminateTimer()
         {
             if (_isRaceLaunched == false || _isRaceEnded)
@@ -85,8 +86,10 @@ namespace Racing
             List<Player> orderedList = _players
                 .OrderBy(x => Vector3.Distance(x.CharacterCore.Kayak.transform.position, _currentCheckpoint.transform.position))
                 .ToList();
-            orderedList[^1].CharacterCore.SetRaceEliminated();
-            _eliminatedPlayers.Push(orderedList[^1]);
+            Player eliminatedPlayer = orderedList[orderedList.Count - 1 - _playerEliminatedCount];
+            eliminatedPlayer.CharacterCore.SetRaceEliminated();
+            _playerEliminatedCount++;
+            _eliminatedPlayers.Push(eliminatedPlayer);
 
             if (_eliminatedPlayers.Count >= _players.Count-1)
             {
