@@ -67,6 +67,11 @@ namespace Menu
 
         public void CheckPlayersReady()
         {
+            if (MultiplayerManager.Instance.Players.Count <= 1)
+            {
+                //TODO return;
+            }
+            
             foreach (Player player in MultiplayerManager.Instance.Players)
             {
                 if (player.SelectionController.ButtonSetReady.IsReady == false)
