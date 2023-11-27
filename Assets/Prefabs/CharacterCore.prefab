@@ -7617,11 +7617,11 @@ MonoBehaviour:
     type: 3}
   _paddleHitPrefab: {fileID: 6056192955490142985, guid: 579c5af3fdefa2e48b24ac945c18b0f7,
     type: 3}
-  _freezeTimeDuration: 5.5
-  _paddleHitForce: 7
+  _freezeTimeDuration: 15
+  _paddleHitForce: 15
   _boostTime: 3
   _boostForce: 1.5
-  _paddleHitDistance: 12.5
+  _paddleHitDistance: 15
   InputPaddle: 0
   InputLeft: 0
   InputRight: 0
