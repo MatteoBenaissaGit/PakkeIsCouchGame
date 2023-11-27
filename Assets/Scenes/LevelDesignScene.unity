@@ -20802,7 +20802,7 @@ MonoBehaviour:
   - {fileID: 533827430}
   - {fileID: 1161401290}
   _countdownText: {fileID: 536001260}
-  _timeToEliminateLast: 120
+  _timeToEliminateLast: 10
   _checkpoints:
   - {fileID: 2043899281}
   - {fileID: 1685919633}
@@ -23711,6 +23711,27 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3475009850946049499, guid: d8e74c90b7c4a7242a18b248b5b396d4,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c3e58c9e2a69a7449ab1839b4d101c68,
+        type: 3}
+    - target: {fileID: 3475009850946049499, guid: d8e74c90b7c4a7242a18b248b5b396d4,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.46226418
+      objectReference: {fileID: 0}
+    - target: {fileID: 3475009850946049499, guid: d8e74c90b7c4a7242a18b248b5b396d4,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.46226418
+      objectReference: {fileID: 0}
+    - target: {fileID: 3475009850946049499, guid: d8e74c90b7c4a7242a18b248b5b396d4,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.46226418
+      objectReference: {fileID: 0}
     - target: {fileID: 5413222114120073598, guid: d8e74c90b7c4a7242a18b248b5b396d4,
         type: 3}
       propertyPath: m_RootOrder

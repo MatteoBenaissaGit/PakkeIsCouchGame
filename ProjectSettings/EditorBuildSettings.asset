@@ -7,13 +7,16 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/MenuScene.unity
-    guid: d604f184d851dfe41866dc2c9ab009bb
+    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/MultiGameScene.unity
-    guid: 8f8bb11f993849447bd2afe4c8619dee
+    path: Assets/Scenes/MultiMenuScene.unity
+    guid: d604f184d851dfe41866dc2c9ab009bb
   - enabled: 1
     path: Assets/Scenes/LevelDesignScene.unity
     guid: e9b1d171a3191c944909451c46c29a4c
+  - enabled: 1
+    path: Assets/Scenes/CreditScene.unity
+    guid: fa1f9c67e5a511c4a82cf67fc9640319
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: bfdc41c27c99df545b7e06550c07887e,
       type: 2}
