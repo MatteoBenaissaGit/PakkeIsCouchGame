@@ -177,6 +177,7 @@ namespace Racing
                 .OrderBy(x => Vector3.Distance(x.CharacterCore.Kayak.transform.position, _currentCheckpoint.transform.position))
                 .ToList();
 
+            
             for (int i = 0; i < orderedList.Count; i++)
             {
                 if (orderedList[i].CharacterCore.IsEliminated)

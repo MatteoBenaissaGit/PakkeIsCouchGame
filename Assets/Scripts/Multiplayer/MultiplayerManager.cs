@@ -89,6 +89,7 @@ namespace Multiplayer
         public void SetPosition(int position)
         {
             CharacterCore.GameplayUI.SetPositionUI(position);
+            CharacterCore.Position = position;
         }
     }
 }

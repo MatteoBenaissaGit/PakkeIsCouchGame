@@ -15,6 +15,7 @@ namespace Multiplayer
         [field: SerializeField] public Camera Cam;
         [field: SerializeField] public CharacterGameplayUI GameplayUI;
 
+        public int Position { get; set; }
         public bool IsEliminated { get; set; }
         
         private void Awake()

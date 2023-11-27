@@ -63,6 +63,7 @@ namespace Kayak
             OnKayakCollision.Invoke();
         }
 
+        public float PositionBoost { get; set; } 
         /// <summary>
         /// Clamp the kayak velocity x & z between -maximumFrontVelocity & maximumFrontVelocity
         /// </summary>
@@ -74,6 +75,12 @@ namespace Kayak
                 BoostParticles.Stop();
             }
             float tempBoost = TempBoostTime > 0 ? TempBoostForce : 1f;
+            PositionBoost = 1f;
+            if (Character.Core.Position > 1)
+            {
+                PositionBoost = 1 + (Character.Core.Position / 9f);
+                Debug.Log($"{Character.Core.Position} : {PositionBoost}");
+            }
 
             Vector3 velocity = Rigidbody.velocity;
             KayakParameters kayakValues = Data.KayakValues;
@@ -82,17 +89,17 @@ namespace Kayak
             float maxClamp = Character.SprintInProgress ? 
                 kayakValues.MaximumFrontSprintVelocity :
                 kayakValues.MaximumFrontVelocity * Character.PlayerStats.MaximumSpeedMultiplier;
-            velocityX = Mathf.Clamp(velocityX, -maxClamp, maxClamp);
+            velocityX = Mathf.Clamp(velocityX, -maxClamp * PositionBoost, maxClamp * PositionBoost);
 
             float velocityZ = velocity.z;
-            velocityZ = Mathf.Clamp(velocityZ, -maxClamp, maxClamp);
+            velocityZ = Mathf.Clamp(velocityZ, -maxClamp * PositionBoost, maxClamp * PositionBoost);
 
             TempForceAdd = Vector3.Lerp(TempForceAdd, Vector3.zero, 0.01f);
             if (TempForceAdd.magnitude < 0.1f)
             {
                 TempForceAdd = Vector3.zero;
             }
-            Rigidbody.velocity = new Vector3(velocityX * tempBoost, velocity.y, velocityZ * tempBoost);
+            Rigidbody.velocity = new Vector3(velocityX * tempBoost, 0, velocityZ * tempBoost);
         }
         
         public void PlayPaddleParticle(CharacterNavigationState.Direction side)
