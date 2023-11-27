@@ -5,14 +5,14 @@ namespace MatteoBenaissaLibrary.Menu.Editor
     using UnityEngine;
 
 #if UNITY_EDITOR
-    [CustomEditor(typeof(MenuManager))]
+    [CustomEditor(typeof(BaseMenuManager))]
     public class MenuManagerEditor : UnityEditor.Editor
     {
-        private MenuManager menuManagerScript;
+        private BaseMenuManager _baseMenuManagerScript;
 
         private void OnEnable()
         {
-            menuManagerScript = (MenuManager)target;
+            _baseMenuManagerScript = (BaseMenuManager)target;
         }
 
         public override void OnInspectorGUI()
@@ -24,21 +24,21 @@ namespace MatteoBenaissaLibrary.Menu.Editor
             //buttons
             if (GUILayout.Button("Set Menu Type Simple"))
             {
-                menuManagerScript.SetMenuTypeSimple();
+                _baseMenuManagerScript.SetMenuTypeSimple();
             }
 
             if (GUILayout.Button("Set Menu Type Side Slide"))
             {
-                menuManagerScript.SetMenuTypeSideSlide();
+                _baseMenuManagerScript.SetMenuTypeSideSlide();
             }
 
-            EditorUtility.SetDirty(menuManagerScript);
+            EditorUtility.SetDirty(_baseMenuManagerScript);
             
             #region Warnings
 
             //references check
-            MenuReferences simpleMenuReferences = menuManagerScript.SimpleMenuReferences;
-            MenuReferences sideSlideMenuReferences = menuManagerScript.SideSlideMenuReferences;
+            MenuReferences simpleMenuReferences = _baseMenuManagerScript.SimpleMenuReferences;
+            MenuReferences sideSlideMenuReferences = _baseMenuManagerScript.SideSlideMenuReferences;
 
             if (simpleMenuReferences.MenuGameObject == null ||
                 simpleMenuReferences.PlayButton == null ||
@@ -52,8 +52,8 @@ namespace MatteoBenaissaLibrary.Menu.Editor
                 EditorGUILayout.HelpBox("References missing", MessageType.Warning, true);
             }
 
-            if (string.IsNullOrEmpty(menuManagerScript.PlaySceneName) ||
-                string.IsNullOrEmpty(menuManagerScript.CreditSceneName))
+            if (string.IsNullOrEmpty(_baseMenuManagerScript.PlaySceneName) ||
+                string.IsNullOrEmpty(_baseMenuManagerScript.CreditSceneName))
             {
                 EditorGUILayout.HelpBox("Scenes names missing", MessageType.Warning, true);
             }

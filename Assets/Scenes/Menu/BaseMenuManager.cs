@@ -41,7 +41,7 @@ namespace MatteoBenaissaLibrary.Menu
     }
     
     [Serializable]
-    public class MenuManager : MonoBehaviour
+    public class BaseMenuManager : MonoBehaviour
     {
         #region References & Parameters
 
@@ -97,11 +97,6 @@ namespace MatteoBenaissaLibrary.Menu
 
         private void Start()
         {
-            if (MultiplayerManager.Instance != null)
-            {
-                Destroy(MultiplayerManager.Instance.gameObject);
-            }
-            
             _buttonManagerList.Add(SimpleMenuReferences.PlayButton);
             _buttonManagerList.Add(SimpleMenuReferences.CreditsButton);
             _buttonManagerList.Add(SimpleMenuReferences.QuitButton);

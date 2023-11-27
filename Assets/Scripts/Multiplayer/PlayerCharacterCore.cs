@@ -27,6 +27,7 @@ namespace Multiplayer
 
         public void SetRaceEliminated()
         {
+            GameplayUI.SetEliminatedUI();
             Kayak.Mesh.gameObject.SetActive(false);
             IsEliminated = true;
         }

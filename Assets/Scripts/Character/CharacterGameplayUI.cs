@@ -23,11 +23,13 @@ namespace Character
         [SerializeField] private TMP_Text _timer;
         [SerializeField] private Image _playerObjectImage;
         [SerializeField] private MysteryObjectSprite[] _objectsSprites = new MysteryObjectSprite[] { };
+        [SerializeField] private GameObject _eliminated;
 
         private Dictionary<MysteryObject, Sprite> _objectSpriteDictionary = new Dictionary<MysteryObject, Sprite>();
 
         private void Awake()
         {
+            _eliminated.SetActive(false);
             _playerObjectImage.gameObject.SetActive(false);
 
             foreach (MysteryObjectSprite mysteryObject in _objectsSprites)
@@ -87,6 +89,11 @@ namespace Character
         {
             _timer.color = Color.cyan;
             _timer.text = $"Freeze for {(int)RaceManager.Instance.FreezeTimeTimer}";
+        }
+
+        public void SetEliminatedUI()
+        {
+            _eliminated.SetActive(true);
         }
     }
 }

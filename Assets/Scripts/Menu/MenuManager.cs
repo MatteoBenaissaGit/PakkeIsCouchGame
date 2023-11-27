@@ -15,17 +15,21 @@ namespace Menu
         [Space(10),SerializeField] private SelectionMenuController _selectionMenu;
         [Space(10),SerializeField] private PlayerCharacterCore _playerCore;
         [Space(10),SerializeField] private string _sceneToLaunch;
+        [Space(10),SerializeField] private MultiplayerManager _multiplayerManager;
 
         public Action<PlayerCharacterCore> OnPlayerJoined;
 
         private int _currentNumberOfPlayer;
 
-        protected override void Awake()
+        protected void Start()
         {
-            base.Awake();
-            
             //TODO do this in the selection menu
             OnPlayerJoined += PlayerJoined;
+
+            if (MultiplayerManager.Instance == null)
+            {
+                Instantiate(_multiplayerManager);
+            }
 
             if (MultiplayerManager.Instance.NumberOfPlayers <= 0)
             {
@@ -46,7 +50,7 @@ namespace Menu
 
         public void PlayerJoined(PlayerCharacterCore playerCore)
         {
-            string playerName = $"Player {_currentNumberOfPlayer}";
+            string playerName = $"Player {_currentNumberOfPlayer+1}";
             int id = _currentNumberOfPlayer;
 
             _playerCore = playerCore;
