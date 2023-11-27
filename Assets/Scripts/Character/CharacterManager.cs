@@ -69,6 +69,10 @@ namespace Character
         [Header("Objects")] 
         [SerializeField] private IcebergDroppable _icebergPrefab;
         [SerializeField] private PaddleHitEffect _paddleHitPrefab;
+        [SerializeField] private float _freezeTimeDuration = 5.5f;
+        [SerializeField] private float _paddleHitForce = 7f;
+        [SerializeField] private float _boostTime = 3f;
+        [SerializeField] private float _boostForce = 1.5f;
         
         private void Awake()
         {
@@ -179,7 +183,7 @@ namespace Character
             switch (_currentObject)
             {
                 case MysteryObject.Freezer:
-                    RaceManager.Instance.FreezeTimeTimer = 5.5f;
+                    RaceManager.Instance.FreezeTimeTimer = _freezeTimeDuration;
                     Core.GameplayUI.SetTimerFreeze();
                     break;
                 case MysteryObject.Iceberg:
@@ -187,7 +191,8 @@ namespace Character
                     iceberg.transform.position = KayakControllerProperty.transform.position - KayakControllerProperty.transform.forward * 2;
                     break;
                 case MysteryObject.Boost:
-                    KayakControllerProperty.TempBoostTime = 3f;
+                    KayakControllerProperty.TempBoostTime = _boostTime;
+                    KayakControllerProperty.TempBoostForce = _boostForce;
                     KayakControllerProperty.BoostParticles.Play();
                     break;
                 case MysteryObject.PaddleHit:
@@ -208,7 +213,7 @@ namespace Character
                         Vector3 force = (kayak.transform.position - KayakControllerProperty.transform.position).normalized;
                         force = new Vector3(force.x, 0, force.z).normalized;
                         Debug.Log("add force " + force);
-                        kayak.TempForceAdd = force * 7f;
+                        kayak.TempForceAdd = force * _paddleHitForce;
                     }
                     break;
             }

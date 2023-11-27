@@ -39,6 +39,7 @@ namespace Kayak
         [SerializeField] private Vector2 _speedEventRecurrenceRandomBetween;
         
         public float TempBoostTime { get; set; }
+        public float TempBoostForce { get; set; }
         public Vector3 TempForceAdd { get; set; }
 
         //privates
@@ -72,7 +73,7 @@ namespace Kayak
             {
                 BoostParticles.Stop();
             }
-            float tempBoost = TempBoostTime > 0 ? 1.5f : 1f;
+            float tempBoost = TempBoostTime > 0 ? TempBoostForce : 1f;
 
             Vector3 velocity = Rigidbody.velocity;
             KayakParameters kayakValues = Data.KayakValues;
