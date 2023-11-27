@@ -7621,7 +7621,7 @@ MonoBehaviour:
   _paddleHitForce: 15
   _boostTime: 3
   _boostForce: 1.5
-  _paddleHitDistance: 15
+  _paddleHitDistance: 8
   InputPaddle: 0
   InputLeft: 0
   InputRight: 0
